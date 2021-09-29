@@ -8,11 +8,11 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-<<<<<<< HEAD
+
 import javax.persistence.OneToOne;
-=======
+
 import javax.persistence.ManyToOne;
->>>>>>> be65be9418ccc6e0242516420814997793ad8f66
+
 import javax.persistence.Table;
 
 @Entity
@@ -30,16 +30,10 @@ public class User {
 	private String lastName;
 	private String email;
 	
-<<<<<<< HEAD
+
 	@OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 	@JoinColumn(name = "role_id")
-	private int role_id;
-=======
-
-	@ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-	@JoinColumn(name = "role_id")
 	private UserRoles role_id;
->>>>>>> be65be9418ccc6e0242516420814997793ad8f66
 	
 	//constructors
 	public User() {
@@ -126,11 +120,11 @@ public class User {
 		this.email = email;
 	}
 
-	public int getRole_id() {
+	public UserRoles getRole_id() {
 		return role_id;
 	}
 
-	public void setRole_id(int role_id) {
+	public void setRole_id(UserRoles role_id) {
 		this.role_id = role_id;
 	}
 	
@@ -193,11 +187,6 @@ public class User {
 		return true;
 	}
 
-<<<<<<< HEAD
-
-=======
-	
->>>>>>> be65be9418ccc6e0242516420814997793ad8f66
 	
 	
 	
