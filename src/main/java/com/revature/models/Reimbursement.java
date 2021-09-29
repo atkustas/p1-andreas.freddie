@@ -2,11 +2,16 @@ package com.revature.models;
 
 import java.util.Arrays;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -23,9 +28,21 @@ public class Reimbursement {
 	private String re_resolved;
 	private String re_desc;
 	private byte[] re_receipt;
+	
+	@ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+	@JoinColumn(name = "user_id")
 	private User re_author;
+	
+	@ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+	@JoinColumn(name = "user_id")
 	private User re_resolver;
+	
+	@OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+	@JoinColumn(name = "re_status_id")
 	private ReStatus re_status_id;
+	
+	@OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+	@JoinColumn(name = "re_type_id")
 	private ReType re_type_id;
 	
 	//constructors
@@ -73,6 +90,89 @@ public class Reimbursement {
 				+ ", re_status_id=" + re_status_id + ", re_type_id=" + re_type_id + "]";
 	}
 
+	//getters & setters
+	public int getRe_id() {
+		return re_id;
+	}
+
+	public void setRe_id(int re_id) {
+		this.re_id = re_id;
+	}
+
+	public int getRe_amount() {
+		return re_amount;
+	}
+
+	public void setRe_amount(int re_amount) {
+		this.re_amount = re_amount;
+	}
+
+	public String getRe_submitted() {
+		return re_submitted;
+	}
+
+	public void setRe_submitted(String re_submitted) {
+		this.re_submitted = re_submitted;
+	}
+
+	public String getRe_resolved() {
+		return re_resolved;
+	}
+
+	public void setRe_resolved(String re_resolved) {
+		this.re_resolved = re_resolved;
+	}
+
+	public String getRe_desc() {
+		return re_desc;
+	}
+
+	public void setRe_desc(String re_desc) {
+		this.re_desc = re_desc;
+	}
+
+	public byte[] getRe_receipt() {
+		return re_receipt;
+	}
+
+	public void setRe_receipt(byte[] re_receipt) {
+		this.re_receipt = re_receipt;
+	}
+
+	public User getRe_author() {
+		return re_author;
+	}
+
+	public void setRe_author(User re_author) {
+		this.re_author = re_author;
+	}
+
+	public User getRe_resolver() {
+		return re_resolver;
+	}
+
+	public void setRe_resolver(User re_resolver) {
+		this.re_resolver = re_resolver;
+	}
+
+	public ReStatus getRe_status_id() {
+		return re_status_id;
+	}
+
+	public void setRe_status_id(ReStatus re_status_id) {
+		this.re_status_id = re_status_id;
+	}
+
+	public ReType getRe_type_id() {
+		return re_type_id;
+	}
+
+	public void setRe_type_id(ReType re_type_id) {
+		this.re_type_id = re_type_id;
+	}
+	
+	
+	
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -142,6 +242,8 @@ public class Reimbursement {
 			return false;
 		return true;
 	}
+
+
 	
 	
 
