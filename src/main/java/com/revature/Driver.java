@@ -3,8 +3,8 @@ package com.revature;
 
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
-
 //import com.revature.utils.HibernateUtil;
+
 //import com.revature.utils.ConnectionUtil;
 //import com.revature.controllers.LoginController;
 

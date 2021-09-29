@@ -12,7 +12,7 @@
 		<!-- password -->
 		<property name="hibernate.connection.password">relost</property>
 		<!-- jdbc:postgresql://{host}[:{port}]/[{database}] -->
-		<property name="hibernate.connection.url">jdbc:postgresql://localhost:5432/postgres?currentSchema=hibernate</property>
+		<property name="hibernate.connection.url">jdbc:postgresql://localhost:5432/postgres?currentSchema=ersdb</property>
 		<property name="hibernate.connection.driver_class">org.postgresql.Driver</property>
 		<!-- Hibernate Properties -->
 		<property name="hibernate.dialect">org.hibernate.dialect.PostgreSQLDialect</property>
