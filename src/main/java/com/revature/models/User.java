@@ -31,7 +31,7 @@ public class User {
 	private String email;
 	
 
-	@OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+	@ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 	@JoinColumn(name = "role_id")
 	private UserRoles role_id;
 	

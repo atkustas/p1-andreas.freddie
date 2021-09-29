@@ -16,7 +16,7 @@
 		<property name="hibernate.connection.driver_class">org.postgresql.Driver</property>
 		<!-- Hibernate Properties -->
 		<property name="hibernate.dialect">org.hibernate.dialect.PostgreSQLDialect</property>
-		<property name="hibernate.default_schema">hibernate</property>
+		<property name="hibernate.default_schema">ersdb</property>
 		<!-- Hibernate console output -->
 		<property name="hibernate.show_sql">true</property>
 		<property name="hibernate.format_sql">true</property>
@@ -24,10 +24,10 @@
 		<property name="hibernate.hbm2ddl.auto">create</property>
 		<!-- Anyone remember what setting our hbm2ddl.auto to create will do? -->
 
-		<!-- We will map our classes here 
-		<mapping class="com.revature.models.Movie"/> 
-		<mapping class="com.revature.models.Director"/> 
-			-->
+		<!-- We will map our classes here -->
+		<mapping class="com.revature.models.User"/> 
+		<mapping class="com.revature.models.UserRoles"/> 
+			
 
 	</session-factory>
 </hibernate-configuration>
