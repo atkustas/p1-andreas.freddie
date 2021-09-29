@@ -23,7 +23,7 @@ import io.javalin.Javalin;
 public class Driver {
 
 	public static void main(String[] args) {
-		System.out.println("backUp loaded");
+		System.out.println("Main loaded");
 		
 		
 		//MovieDao md = new MovieDao();
