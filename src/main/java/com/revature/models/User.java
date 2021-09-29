@@ -1,10 +1,14 @@
 package com.revature.models;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -21,7 +25,11 @@ public class User {
 	private String firstName;
 	private String lastName;
 	private String email;
-	private int role_id;
+	
+
+	@ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+	@JoinColumn(name = "role_id")
+	private UserRoles role_id;
 	
 	//constructors
 	public User() {
@@ -31,7 +39,7 @@ public class User {
 
 	//all-args
 	public User(int id, String username, String password, String firstName, String lastName, String email,
-			int role_id) {
+			UserRoles role_id) {
 		super();
 		this.id = id;
 		this.username = username;
@@ -43,7 +51,7 @@ public class User {
 	}
 	
 	//no id
-	public User(String username, String password, String firstName, String lastName, String email, int role_id) {
+	public User(String username, String password, String firstName, String lastName, String email, UserRoles role_id) {
 		super();
 		this.username = username;
 		this.password = password;
@@ -68,7 +76,7 @@ public class User {
 		result = prime * result + id;
 		result = prime * result + ((lastName == null) ? 0 : lastName.hashCode());
 		result = prime * result + ((password == null) ? 0 : password.hashCode());
-		result = prime * result + role_id;
+		result = prime * result + ((role_id == null) ? 0 : role_id.hashCode());
 		result = prime * result + ((username == null) ? 0 : username.hashCode());
 		return result;
 	}
@@ -104,7 +112,10 @@ public class User {
 				return false;
 		} else if (!password.equals(other.password))
 			return false;
-		if (role_id != other.role_id)
+		if (role_id == null) {
+			if (other.role_id != null)
+				return false;
+		} else if (!role_id.equals(other.role_id))
 			return false;
 		if (username == null) {
 			if (other.username != null)
@@ -113,6 +124,7 @@ public class User {
 			return false;
 		return true;
 	}
+
 	
 	
 	
