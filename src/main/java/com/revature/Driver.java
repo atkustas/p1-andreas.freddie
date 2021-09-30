@@ -1,22 +1,23 @@
 package com.revature;
 
 
+import java.util.List;
+
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 //import com.revature.utils.HibernateUtil;
 
+import com.revature.dao.ReStatusDao;
+import com.revature.dao.ReTypeDao;
+import com.revature.dao.ReimburstDao;
 import com.revature.dao.UserDao;
 import com.revature.dao.UserRoleDao;
+import com.revature.models.ReStatus;
+import com.revature.models.ReType;
+import com.revature.models.Reimbursement;
 import com.revature.models.User;
 import com.revature.models.UserRoles;
 import com.revature.utils.HibernateUtil;
-
-//import com.revature.utils.ConnectionUtil;
-//import com.revature.controllers.LoginController;
-
-import java.sql.Connection;
-import java.sql.SQLException;
-import java.util.List;
 
 import io.javalin.Javalin;
 
@@ -68,6 +69,10 @@ public class Driver {
 		//creating some directors
 				UserRoles mang = new UserRoles("Manager");
 				UserRoles  emp = new UserRoles("Employee");
+				
+				ReimburstDao rbDao = new ReimburstDao();
+				ReStatusDao rsDao = new ReStatusDao();
+				ReTypeDao rtDao = new ReTypeDao();
 						//filmgraphy flied will get populated
 						
 						//creating some movies
@@ -94,7 +99,7 @@ public class Driver {
 						
 
 						//**********************************(reimburstment test)
-								/*
+								
 								//creating some directors
 								ReStatus good = new ReStatus("Approved");
 								ReStatus bad = new ReStatus("Denined");
@@ -122,7 +127,32 @@ public class Driver {
 											System.out.println(t);
 										}
 								
-								*/
+								
+						
+						System.out.println("\n\n**********************************");
+						System.out.println("\nPrint Ticket by ID");
+						System.out.println("\n\n**********************************");
+					
+						//finding movie by id
+						System.out.println(rbDao.findTicketById(2));
+						
+						System.out.println("\n\n**********************************");
+						System.out.println("\nUpdate NEW Movie Title by ID");
+						System.out.println("\n\n**********************************");
+						
+						//updating movie
+						//m1.setTitle("OOGABOOGABOOGABOOGA");
+						ticket2.setRe_status_id(good);
+						//to aprove or deny a ticket what needs to be changed/updated?
+						
+						//mDao.updateMovie2(m1);
+						rbDao.updateTicketStat(ticket2);
+						
+						System.out.println("\n\n**********************************");
+						System.out.println("\nPrint NEW Movie Title by ID");
+						System.out.println("\n\n**********************************");
+						
+						System.out.println(rbDao.findTicketById(2));
 		
 	}//end of main
 	
