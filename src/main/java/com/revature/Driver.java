@@ -91,6 +91,38 @@ public class Driver {
 						}
 						
 
+						
+
+						//**********************************(reimburstment test)
+								/*
+								//creating some directors
+								ReStatus good = new ReStatus("Approved");
+								ReStatus bad = new ReStatus("Denined");
+								
+								ReType  pass = new ReType("Pending");
+								ReType  approved = new ReType("Seen");
+										//filmgraphy flied will get populated
+										
+										//creating some movies
+								Reimbursement ticket1 = new Reimbursement(15, "noon", "next-day", "Fred's ticket on food", null, emp1, mang1, good, approved);
+								Reimbursement ticket2 = new Reimbursement(35, "11:15", "n/a", "Andres's ticket on food", null, emp2, null, bad, pass);
+								
+										
+										//insert our new movies into the database
+										rbDao.insertTicket(ticket1);
+										rbDao.insertTicket(ticket2);
+										
+									
+										
+										
+										//retrieve our Movies from the DB
+										List<Reimbursement> allTickets = rbDao.findAllTickets();
+										
+										for(Reimbursement t : allTickets) {
+											System.out.println(t);
+										}
+								
+								*/
 		
 	}//end of main
 	
