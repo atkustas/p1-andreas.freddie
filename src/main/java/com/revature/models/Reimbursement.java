@@ -31,11 +31,11 @@ public class Reimbursement {
 	private byte[] re_receipt;
 	
 	@ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-	@JoinColumn(name = "user_id", updatable = false, insertable = false)
+	@JoinColumn(name= "re_author", referencedColumnName = "user_id")
 	private User re_author;
 	
 	@ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-	@JoinColumn(name = "user_id", updatable = false, insertable = false)
+	@JoinColumn(name = "re_resolver", referencedColumnName = "user_id")
 	private User re_resolver;
 	
 	@OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
