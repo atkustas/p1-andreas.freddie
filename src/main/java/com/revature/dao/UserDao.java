@@ -12,7 +12,7 @@ public class UserDao implements UserInterface {
 	public void insertUser(User emp) {
 		// TODO Auto-generated method stub
 		
-				//open session object to estiblish connection to DB
+				//open session object to establish connection to DB
 				Session ses = HibernateUtil.getSession();
 				
 				ses.save(emp);

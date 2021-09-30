@@ -10,7 +10,7 @@
 		<!-- JDBC -->
 		<property name="hibernate.connection.username">postgres</property>
 		<!-- password -->
-		<property name="hibernate.connection.password">relost</property>
+		<property name="hibernate.connection.password">password</property>
 		<!-- jdbc:postgresql://{host}[:{port}]/[{database}] -->
 		<property name="hibernate.connection.url">jdbc:postgresql://localhost:5432/postgres?currentSchema=ersdb</property>
 		<property name="hibernate.connection.driver_class">org.postgresql.Driver</property>
@@ -26,7 +26,10 @@
 
 		<!-- We will map our classes here -->
 		<mapping class="com.revature.models.User"/> 
-		<mapping class="com.revature.models.UserRoles"/> 
+		<mapping class="com.revature.models.UserRoles"/>
+		<mapping class="com.revature.models.ReStatus"/> 
+		<mapping class="com.revature.models.ReType"/> 
+		<mapping class="com.revature.models.Reimbursement"/> 
 			
 
 	</session-factory>
