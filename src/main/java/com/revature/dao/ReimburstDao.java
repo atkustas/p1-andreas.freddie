@@ -2,7 +2,10 @@ package com.revature.dao;
 
 import java.util.List;
 
+import javax.persistence.Query;
+
 import org.hibernate.Session;
+import org.hibernate.Transaction;
 
 import com.revature.models.Reimbursement;
 import com.revature.models.User;
@@ -75,7 +78,23 @@ public class ReimburstDao implements ReimburstInterface {
 
 	@Override
 	public void updateTicket(Reimbursement ticket) {
-		// TODO Auto-generated method stub
+		
+		Session ses = HibernateUtil.getSession();
+		
+		Transaction tran = ses.beginTransaction();
+		
+		//assign query to String
+		String HQL = "UPDATE Reimbursement Set re_amount = '" +ticket.getRe_amount() + "'WHERE re_id = " +ticket.getRe_id();
+		
+		//make query object from HQL
+		Query q = ses.createQuery(HQL);
+		
+		//send update to database
+		q.executeUpdate();
+		
+		//close transaction & session
+		tran.commit();
+		HibernateUtil.closeSession();
 		
 	}
 

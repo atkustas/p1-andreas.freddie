@@ -11,6 +11,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -23,7 +24,7 @@ public class Reimbursement {
 	@Column(name = "re_id")
 	private int re_id;
 	
-	private int re_amount;
+	private double re_amount;
 	private String re_submitted;
 	private String re_resolved;
 	private String re_desc;
@@ -52,7 +53,7 @@ public class Reimbursement {
 	}
 
 	//all-args
-	public Reimbursement(int re_id, int re_amount, String re_submitted, String re_resolved, String re_desc,
+	public Reimbursement(int re_id, double re_amount, String re_submitted, String re_resolved, String re_desc,
 			byte[] re_receipt, User re_author, User re_resolver, ReStatus re_status_id, ReType re_type_id) {
 		super();
 		this.re_id = re_id;
@@ -68,7 +69,7 @@ public class Reimbursement {
 	}
 
 	//no id
-	public Reimbursement(int re_amount, String re_submitted, String re_resolved, String re_desc, byte[] re_receipt,
+	public Reimbursement(double re_amount, String re_submitted, String re_resolved, String re_desc, byte[] re_receipt,
 			User re_author, User re_resolver, ReStatus re_status_id, ReType re_type_id) {
 		super();
 		this.re_amount = re_amount;
@@ -99,7 +100,7 @@ public class Reimbursement {
 		this.re_id = re_id;
 	}
 
-	public int getRe_amount() {
+	public double getRe_amount() {
 		return re_amount;
 	}
 
@@ -170,14 +171,14 @@ public class Reimbursement {
 	public void setRe_type_id(ReType re_type_id) {
 		this.re_type_id = re_type_id;
 	}
-	
-	
-	
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + re_amount;
+		long temp;
+		temp = Double.doubleToLongBits(re_amount);
+		result = prime * result + (int) (temp ^ (temp >>> 32));
 		result = prime * result + ((re_author == null) ? 0 : re_author.hashCode());
 		result = prime * result + ((re_desc == null) ? 0 : re_desc.hashCode());
 		result = prime * result + re_id;
@@ -199,7 +200,7 @@ public class Reimbursement {
 		if (getClass() != obj.getClass())
 			return false;
 		Reimbursement other = (Reimbursement) obj;
-		if (re_amount != other.re_amount)
+		if (Double.doubleToLongBits(re_amount) != Double.doubleToLongBits(other.re_amount))
 			return false;
 		if (re_author == null) {
 			if (other.re_author != null)
@@ -242,11 +243,10 @@ public class Reimbursement {
 			return false;
 		return true;
 	}
-
-
 	
 	
-
+	
+	
 	
 	
 
