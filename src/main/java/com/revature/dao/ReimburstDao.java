@@ -37,4 +37,64 @@ public class ReimburstDao implements ReimburstInterface {
 		return ticketList;
 	}
 
+	@Override
+	public void addNewTicket(Reimbursement ticket) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public List<Reimbursement> findPastTicketsEmp() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<Reimbursement> findPastTicketsMang() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<Reimbursement> findTicketsByStat() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<Reimbursement> findTicketsByType() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Reimbursement findTicketById(int id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void updateTicket(Reimbursement ticket) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void updateTicketStat(Reimbursement ticket) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void updateTicketStatAPP(Reimbursement ticket) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void updateTicketStatDEN(Reimbursement ticket) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }
