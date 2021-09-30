@@ -140,32 +140,32 @@ public class Reimbursement {
 		this.re_receipt = re_receipt;
 	}
 
-	public User getRe_author() {
-		return re_author;
+	public int getRe_author() {
+		return re_author.getId();
 	}
 
 	public void setRe_author(User re_author) {
 		this.re_author = re_author;
 	}
 
-	public User getRe_resolver() {
-		return re_resolver;
+	public int getRe_resolver() {
+		return re_resolver.getId();
 	}
 
 	public void setRe_resolver(User re_resolver) {
 		this.re_resolver = re_resolver;
 	}
 
-	public ReStatus getRe_status_id() {
-		return re_status_id;
+	public int getRe_status_id() {
+		return re_status_id.getRe_status_id();
 	}
 
 	public void setRe_status_id(ReStatus re_status_id) {
 		this.re_status_id = re_status_id;
 	}
 
-	public ReType getRe_type_id() {
-		return re_type_id;
+	public int getRe_type_id() {
+		return re_type_id.getRe_type_id();
 	}
 
 	public void setRe_type_id(ReType re_type_id) {
