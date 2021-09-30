@@ -24,13 +24,21 @@
 		<property name="hibernate.hbm2ddl.auto">create</property>
 		<!-- Anyone remember what setting our hbm2ddl.auto to create will do? -->
 
-		<!-- We will map our classes here -->
+
 		<mapping class="com.revature.models.User"/> 
 		<mapping class="com.revature.models.UserRoles"/>
 		<mapping class="com.revature.models.ReStatus"/> 
 		<mapping class="com.revature.models.ReType"/> 
 		<mapping class="com.revature.models.Reimbursement"/> 
-			
+		<mapping class="com.revature.models.UserRoles"/>
+		
+		
+		<!-- We will map our classes here 
+		<mapping class="com.revature.models.Reimbursement"/> 
+		<mapping class="com.revature.models.ReStatus"/> 
+		<mapping class="com.revature.models.ReType"/> 
+			-->
+
 
 	</session-factory>
 </hibernate-configuration>
