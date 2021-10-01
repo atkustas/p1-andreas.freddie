@@ -40,34 +40,56 @@ public class ReimburstDao implements ReimburstInterface {
 		return ticketList;
 	}
 
+
+	@SuppressWarnings("unchecked")
 	@Override
-	public void addNewTicket(Reimbursement ticket) {
-		// TODO Auto-generated method stub
+	public List<Reimbursement> findPastTicketsEmp(int id) {
+
+		Session ses = HibernateUtil.getSession();
 		
-	}
-
-	@Override
-	public List<Reimbursement> findPastTicketsEmp() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public List<Reimbursement> findPastTicketsMang() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public List<Reimbursement> findTicketsByStat() {
+		List<Reimbursement> empReimb = ses.createQuery("FROM Reimbursement where re_author = " +id).list();
 		
-		return null;
+		HibernateUtil.closeSession();
+		
+		return empReimb;
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
-	public List<Reimbursement> findTicketsByType() {
-		// TODO Auto-generated method stub
-		return null;
+	public List<Reimbursement> findPastTicketsMang(int id) {
+		Session ses = HibernateUtil.getSession();
+		
+		List<Reimbursement> empReimb = ses.createQuery("FROM Reimbursement where re_author = " +id).list();
+		
+		HibernateUtil.closeSession();
+		
+		return empReimb;
+	}
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<Reimbursement> findTicketsByStat(int id) {
+
+		Session ses = HibernateUtil.getSession();
+		
+		List<Reimbursement> empReimb = ses.createQuery("FROM Reimbursement where re_status_id = " +id).list();
+		
+		HibernateUtil.closeSession();
+		
+		return empReimb;
+	}
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<Reimbursement> findTicketsByType(int id) {
+
+		Session ses = HibernateUtil.getSession();
+		
+		List<Reimbursement> empReimb = ses.createQuery("FROM Reimbursement where re_type_id = " +id).list();
+		
+		HibernateUtil.closeSession();
+		
+		return empReimb;
 	}
 
 	@Override
@@ -76,9 +98,9 @@ public class ReimburstDao implements ReimburstInterface {
 		
 		Reimbursement ticket = ses.get(Reimbursement.class, id);
 			
-			HibernateUtil.closeSession();
+		HibernateUtil.closeSession();
 			
-			return ticket;
+		return ticket;
 	}
 
 	@Override

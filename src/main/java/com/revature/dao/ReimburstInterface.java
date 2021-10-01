@@ -8,17 +8,15 @@ public interface ReimburstInterface {
 
 	public void insertTicket(Reimbursement ticket);
 	
-	public void addNewTicket(Reimbursement ticket);
-	
-	public List<Reimbursement> findPastTicketsEmp();
-	
 	public List<Reimbursement> findAllTickets();
 	
-	public List<Reimbursement> findPastTicketsMang();
+	public List<Reimbursement> findPastTicketsEmp(int id);
 	
-	public List<Reimbursement> findTicketsByStat();
+	public List<Reimbursement> findPastTicketsMang(int id);
 	
-	public List<Reimbursement> findTicketsByType();
+	public List<Reimbursement> findTicketsByStat(int id);
+	
+	public List<Reimbursement> findTicketsByType(int id);
 
 	public Reimbursement findTicketById(int id);
 
