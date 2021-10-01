@@ -1,26 +1,26 @@
+.container{
+    display: flex;
+    justify-content: center;
+    
+    }
+
 #header-row{
 
     margin: 0;
     position: absolute;
-    top: 25%;
-    left: 50%;
+    top: 20%;
+    left: 60%;
 
 }
 
 div.row{
 
+    float: left;
     margin: 0;
     position: absolute;
     top: 50%;
-    left: 50%;
+    left: 60%;
     transform: translate(-50%, -50%);
 
 }
 
-#container{
-
-    margin: 0;
-    padding: 30px;
-    text-align: center;
-
-}
