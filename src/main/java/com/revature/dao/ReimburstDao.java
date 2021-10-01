@@ -153,7 +153,29 @@ public class ReimburstDao implements ReimburstInterface {
 
 	@Override
 	public void updateTicketStatAPP(Reimbursement ticket) {
-		// TODO Auto-generated method stub
+		//ticket.setRe_status_id(1);
+		
+				Session ses = HibernateUtil.getSession();
+				Transaction tran = ses.beginTransaction(); //update and delete must happen within a transaction
+				
+				//updates and deletes take a little more work... You should put the query into a Query object
+				//and then make sure to executeUpdate(), similar to in JDBC.
+				
+				//Assign the Query syntax to a String
+				//String HQL = "UPDATE Movie SET title = '" + movie.getTitle() + "' WHERE id = " + movie.getId();
+				
+				//Assign the Query syntax to a String
+				String HQL = "UPDATE Reimbursement SET re_status_id = '" + ticket.getRe_status_id() + "',re_type_id = '" + ticket.getRe_type_id() + "',re_resolver = '" + ticket.getRe_resolver() + "',re_resolved = '" + ticket.getRe_resolved() + "' WHERE id = " + ticket.getRe_id();
+				
+				//Instantiate a Query object with createQuery()
+				Query q = ses.createQuery(HQL);
+				
+				//Send the update to the DB just like JDBC
+				q.executeUpdate();
+				
+				//close transaction and session to prevent memory leak
+				tran.commit();
+				HibernateUtil.closeSession();
 		
 	}
 

@@ -243,6 +243,29 @@ public class Reimbursement {
 			return false;
 		return true;
 	}
+
+	public void setFlieds(int good, int pending, String resloveDate, User re_resolver, ReStatus re_status_id, ReType re_type_id) {
+		//good = 1;
+				//pending = 1;
+				
+				int temp = re_resolver.getRole_id();
+				
+				System.out.println("Status: " + getRe_status_id() + ", Type: " + getRe_type_id());
+				
+				re_status_id.setRe_status_id(good);
+				re_type_id.setRe_type_id(pending);
+				setRe_type_id(re_type_id);
+				setRe_status_id(re_status_id);
+				
+				
+				setRe_resolved(resloveDate);
+				setRe_resolver(re_resolver);
+				
+				System.out.println("Ticket#:" + getRe_id() + "was updated on [" + getRe_resolved() + "]" + " with the follow info: " 
+				+ "Status: " + getRe_status_id() + ", Type: " + getRe_type_id() + ", resolved by: " +  getRe_resolver());
+			
+		
+	}
 	
 	
 	

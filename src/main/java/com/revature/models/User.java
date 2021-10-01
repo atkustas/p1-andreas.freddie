@@ -120,8 +120,8 @@ public class User {
 		this.email = email;
 	}
 
-	public UserRoles getRole_id() {
-		return role_id;
+	public int getRole_id() {
+		return role_id.getRoleID();
 	}
 
 	public void setRole_id(UserRoles role_id) {

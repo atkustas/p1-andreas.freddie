@@ -143,10 +143,12 @@ public class Driver {
 						//updating movie
 						//m1.setTitle("OOGABOOGABOOGABOOGA");
 						ticket2.setRe_status_id(good);
+						ticket2.setFlieds(1, 1, "12:50", mang1, good, approved);
 						//to aprove or deny a ticket what needs to be changed/updated?
 						
 						//mDao.updateMovie2(m1);
-						rbDao.updateTicketStat(ticket2);
+						//rbDao.updateTicketStat(ticket2);
+						rbDao.updateTicketStatAPP(ticket2);
 						
 						System.out.println("\n\n**********************************");
 						System.out.println("\nPrint NEW Movie Title by ID");
