@@ -1,4 +1,4 @@
-const url = "http://localhost:8090/"
+const url = "http://35.245.118.231:5432"
 
 
 document.getElementById("loginButton").addEventListener("click", loginFunc);
@@ -10,8 +10,8 @@ async function loginFunc(){
     let usern = document.getElementById("username").value;
     let userp = document.getElementById("password").value;
 
-    //we want to send the user/pass as JDON, so we need to make a JS object to send
-    let user={
+    //we want to send the user/pass as JSON, so we need to make a JS object to send
+    let user= {
         username:usern,
         password:userp
     }
