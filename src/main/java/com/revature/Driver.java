@@ -102,7 +102,7 @@ public class Driver {
 								
 								//creating some directors
 								ReStatus good = new ReStatus("Approved");
-								ReStatus bad = new ReStatus("Denined");
+								ReStatus bad = new ReStatus("Denied");
 								
 								ReType  pass = new ReType("Pending");
 								ReType  approved = new ReType("Seen");

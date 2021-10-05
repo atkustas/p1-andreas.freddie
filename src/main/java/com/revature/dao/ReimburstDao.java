@@ -25,6 +25,7 @@ public class ReimburstDao implements ReimburstInterface {
 		
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public List<Reimbursement> findAllTickets() {
 		Session ses = HibernateUtil.getSession();
@@ -33,8 +34,8 @@ public class ReimburstDao implements ReimburstInterface {
 		List<Reimbursement> ticketList = ses.createQuery("FROM Reimbursement").list();
 		
 		HibernateUtil.closeSession(); 
-		//cant close session after return statment but error might occur
-		//memeory could leak too but no too bad in this case
+		//cant close session after return statement but error might occur
+		//memory could leak too but no too bad in this case
 		//lazy is bad change to eager
 		
 		return ticketList;
