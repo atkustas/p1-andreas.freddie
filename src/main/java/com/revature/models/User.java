@@ -18,30 +18,29 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "users")
 public class User {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "user_id")
 	private int id;
-	
+
 	private String username;
 	private String password;
 	private String firstName;
 	private String lastName;
 	private String email;
-	
 
 	@ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 	@JoinColumn(name = "role_id")
 	private UserRoles role_id;
-	
-	//constructors
+
+	// constructors
 	public User() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	//all-args
+	// all-args
 	public User(int id, String username, String password, String firstName, String lastName, String email,
 			UserRoles role_id) {
 		super();
@@ -53,8 +52,8 @@ public class User {
 		this.email = email;
 		this.role_id = role_id;
 	}
-	
-	//no id
+
+	// no id
 	public User(String username, String password, String firstName, String lastName, String email, UserRoles role_id) {
 		super();
 		this.username = username;
@@ -70,8 +69,8 @@ public class User {
 		return "User [id=" + id + ", username=" + username + ", password=" + password + ", firstName=" + firstName
 				+ ", lastName=" + lastName + ", email=" + email + ", role_id=" + role_id + "]";
 	}
-	
-	//getters & setters
+
+	// getters & setters
 	public int getId() {
 		return id;
 	}
@@ -127,7 +126,6 @@ public class User {
 	public void setRole_id(UserRoles role_id) {
 		this.role_id = role_id;
 	}
-	
 
 	@Override
 	public int hashCode() {
@@ -186,10 +184,5 @@ public class User {
 			return false;
 		return true;
 	}
-
-	
-	
-	
-	
 
 }

@@ -10,16 +10,16 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "re_type")
 public class ReType {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "re_type_id")
 	private int re_type_id;
-	
+
 	@Column(name = "re_type", nullable = false)
 	private String re_type;
 
-	//constructors
+	// constructors
 	public ReType() {
 		super();
 		// TODO Auto-generated constructor stub
@@ -30,7 +30,7 @@ public class ReType {
 		this.re_type_id = re_type_id;
 		this.re_type = re_type;
 	}
-	
+
 	public ReType(String re_type) {
 		super();
 		this.re_type = re_type;
@@ -41,7 +41,7 @@ public class ReType {
 		return "ReType [re_type_id=" + re_type_id + ", re_type=" + re_type + "]";
 	}
 
-	//getters & setters
+	// getters & setters
 	public int getRe_type_id() {
 		return re_type_id;
 	}
@@ -58,8 +58,6 @@ public class ReType {
 		this.re_type = re_type;
 	}
 
-	
-	
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -87,8 +85,5 @@ public class ReType {
 			return false;
 		return true;
 	}
-
-
-	
 
 }

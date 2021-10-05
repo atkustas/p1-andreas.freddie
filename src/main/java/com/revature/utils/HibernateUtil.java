@@ -6,7 +6,7 @@ import org.hibernate.cfg.Configuration;
 
 //We use this class in order to get our sessions!
 //Sessions manage the actual connection to our database.
-public class HibernateUtil { 
+public class HibernateUtil {
 
 	// We use the SessionFactory interface in order to get a Session.
 	// Note that we point it to the hibernate.cfg.xml file where our database

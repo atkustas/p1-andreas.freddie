@@ -1,4 +1,4 @@
-const url = "http://35.245.118.231:5432"
+const url = "http://localhost:8090/"
 
 
 document.getElementById("loginButton").addEventListener("click", loginFunc);
@@ -29,11 +29,11 @@ async function loginFunc(){
 
     if(response.status === 200){
 
-        document.getElementById("login-row").innerText="welcome!"
+        document.getElementById("login-row").innerText="Welcome!"
 
 
     }else{
-        document.getElementById("login-row").innerText="Login failed! Try Again..."
+        document.getElementById("login-row").innerText="Login failed! Check credentials and try again."
     }
 
 }

@@ -18,41 +18,41 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "reimbursements")
 public class Reimbursement {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "re_id")
 	private int re_id;
-	
+
 	private double re_amount;
 	private String re_submitted;
 	private String re_resolved;
 	private String re_desc;
 	private byte[] re_receipt;
-	
+
 	@ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-	@JoinColumn(name= "re_author", referencedColumnName = "user_id")
+	@JoinColumn(name = "re_author", referencedColumnName = "user_id")
 	private User re_author;
-	
+
 	@ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 	@JoinColumn(name = "re_resolver", referencedColumnName = "user_id")
 	private User re_resolver;
-	
+
 	@OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 	@JoinColumn(name = "re_status_id")
 	private ReStatus re_status_id;
-	
+
 	@OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 	@JoinColumn(name = "re_type_id")
 	private ReType re_type_id;
-	
-	//constructors
+
+	// constructors
 	public Reimbursement() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	//all-args
+	// all-args
 	public Reimbursement(int re_id, double re_amount, String re_submitted, String re_resolved, String re_desc,
 			byte[] re_receipt, User re_author, User re_resolver, ReStatus re_status_id, ReType re_type_id) {
 		super();
@@ -68,7 +68,7 @@ public class Reimbursement {
 		this.re_type_id = re_type_id;
 	}
 
-	//no id
+	// no id
 	public Reimbursement(double re_amount, String re_submitted, String re_resolved, String re_desc, byte[] re_receipt,
 			User re_author, User re_resolver, ReStatus re_status_id, ReType re_type_id) {
 		super();
@@ -91,7 +91,7 @@ public class Reimbursement {
 				+ ", re_status_id=" + re_status_id + ", re_type_id=" + re_type_id + "]";
 	}
 
-	//getters & setters
+	// getters & setters
 	public int getRe_id() {
 		return re_id;
 	}
@@ -244,33 +244,27 @@ public class Reimbursement {
 		return true;
 	}
 
-	public void setFlieds(int good, int pending, String resloveDate, User re_resolver, ReStatus re_status_id, ReType re_type_id) {
-		//good = 1;
-				//pending = 1;
-				
-				int temp = re_resolver.getRole_id();
-				
-				System.out.println("Status: " + getRe_status_id() + ", Type: " + getRe_type_id());
-				
-				re_status_id.setRe_status_id(good);
-				re_type_id.setRe_type_id(pending);
-				setRe_type_id(re_type_id);
-				setRe_status_id(re_status_id);
-				
-				
-				setRe_resolved(resloveDate);
-				setRe_resolver(re_resolver);
-				
-				System.out.println("Ticket#:" + getRe_id() + "was updated on [" + getRe_resolved() + "]" + " with the follow info: " 
-				+ "Status: " + getRe_status_id() + ", Type: " + getRe_type_id() + ", resolved by: " +  getRe_resolver());
-			
-		
+	public void setFlieds(int good, int pending, String resloveDate, User re_resolver, ReStatus re_status_id,
+			ReType re_type_id) {
+		// good = 1;
+		// pending = 1;
+
+		int temp = re_resolver.getRole_id();
+
+		System.out.println("Status: " + getRe_status_id() + ", Type: " + getRe_type_id());
+
+		re_status_id.setRe_status_id(good);
+		re_type_id.setRe_type_id(pending);
+		setRe_type_id(re_type_id);
+		setRe_status_id(re_status_id);
+
+		setRe_resolved(resloveDate);
+		setRe_resolver(re_resolver);
+
+		System.out.println("Ticket#:" + getRe_id() + "was updated on [" + getRe_resolved() + "]"
+				+ " with the follow info: " + "Status: " + getRe_status_id() + ", Type: " + getRe_type_id()
+				+ ", resolved by: " + getRe_resolver());
+
 	}
-	
-	
-	
-	
-	
-	
 
 }

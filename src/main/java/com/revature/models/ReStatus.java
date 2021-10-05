@@ -10,22 +10,20 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "re_status")
 public class ReStatus {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "re_status_id")
 	private int re_status_id;
-	
+
 	@Column(name = "re_status", nullable = false)
 	private String re_status;
 
-
-	//constructors
+	// constructors
 	public ReStatus() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-
 
 	public ReStatus(int re_status_id, String re_status) {
 		super();
@@ -33,33 +31,28 @@ public class ReStatus {
 		this.re_status = re_status;
 	}
 
-
 	public ReStatus(String re_status) {
 		super();
 		this.re_status = re_status;
 	}
-
 
 	@Override
 	public String toString() {
 		return "ReStatus [re_status_id=" + re_status_id + ", re_status=" + re_status + "]";
 	}
 
-	//getters & setters
+	// getters & setters
 	public int getRe_status_id() {
 		return re_status_id;
 	}
-
 
 	public void setRe_status_id(int re_status_id) {
 		this.re_status_id = re_status_id;
 	}
 
-
 	public String getRe_status() {
 		return re_status;
 	}
-
 
 	public void setRe_status(String re_status) {
 		this.re_status = re_status;
@@ -73,7 +66,6 @@ public class ReStatus {
 		result = prime * result + re_status_id;
 		return result;
 	}
-
 
 	@Override
 	public boolean equals(Object obj) {
@@ -93,11 +85,5 @@ public class ReStatus {
 			return false;
 		return true;
 	}
-
-
-
-	
-	
-	
 
 }

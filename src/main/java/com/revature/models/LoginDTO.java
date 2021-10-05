@@ -1,10 +1,10 @@
 package com.revature.models;
 
 public class LoginDTO {
-	
+
 	private String username;
 	private String password;
-	
+
 	public LoginDTO() {
 		super();
 		// TODO Auto-generated constructor stub
@@ -31,6 +31,5 @@ public class LoginDTO {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	
 
 }
