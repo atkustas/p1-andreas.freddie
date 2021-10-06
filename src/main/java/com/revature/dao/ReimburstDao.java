@@ -7,6 +7,8 @@ import javax.persistence.Query;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
+import com.revature.models.ReStatus;
+import com.revature.models.ReType;
 import com.revature.models.Reimbursement;
 import com.revature.models.User;
 import com.revature.utils.HibernateUtil;
@@ -16,7 +18,7 @@ public class ReimburstDao implements ReimburstInterface {
 	@Override
 	public void insertTicket(Reimbursement ticket) {
 
-		// open session object to estiblish connection to DB
+		// open session object to establish connection to DB
 		Session ses = HibernateUtil.getSession();
 
 		ses.save(ticket);
@@ -43,11 +45,11 @@ public class ReimburstDao implements ReimburstInterface {
 
 	@SuppressWarnings("unchecked")
 	@Override
-	public List<Reimbursement> findPastTicketsEmp(int id) {
+	public List<Reimbursement> findPastTicketsEmp(User user) {
 
 		Session ses = HibernateUtil.getSession();
 
-		List<Reimbursement> empReimb = ses.createQuery("FROM Reimbursement where re_author = " + id).list();
+		List<Reimbursement> empReimb = ses.createQuery("FROM Reimbursement where re_author = " + user.getId()).list();
 
 		HibernateUtil.closeSession();
 
@@ -56,10 +58,10 @@ public class ReimburstDao implements ReimburstInterface {
 
 	@SuppressWarnings("unchecked")
 	@Override
-	public List<Reimbursement> findPastTicketsMang(int id) {
+	public List<Reimbursement> findPastTicketsMang(User user) {
 		Session ses = HibernateUtil.getSession();
 
-		List<Reimbursement> empReimb = ses.createQuery("FROM Reimbursement where re_author = " + id).list();
+		List<Reimbursement> empReimb = ses.createQuery("FROM Reimbursement where re_author = " + user.getId()).list();
 
 		HibernateUtil.closeSession();
 
@@ -68,11 +70,11 @@ public class ReimburstDao implements ReimburstInterface {
 
 	@SuppressWarnings("unchecked")
 	@Override
-	public List<Reimbursement> findTicketsByStat(int id) {
+	public List<Reimbursement> findTicketsByStat(ReStatus status) {
 
 		Session ses = HibernateUtil.getSession();
 
-		List<Reimbursement> empReimb = ses.createQuery("FROM Reimbursement where re_status_id = " + id).list();
+		List<Reimbursement> empReimb = ses.createQuery("FROM Reimbursement where re_status_id = " + status.getRe_status_id()).list();
 
 		HibernateUtil.closeSession();
 
@@ -81,11 +83,11 @@ public class ReimburstDao implements ReimburstInterface {
 
 	@SuppressWarnings("unchecked")
 	@Override
-	public List<Reimbursement> findTicketsByType(int id) {
+	public List<Reimbursement> findTicketsByType(ReType type) {
 
 		Session ses = HibernateUtil.getSession();
 
-		List<Reimbursement> empReimb = ses.createQuery("FROM Reimbursement where re_type_id = " + id).list();
+		List<Reimbursement> empReimb = ses.createQuery("FROM Reimbursement where re_type_id = " + type.getRe_type_id()).list();
 
 		HibernateUtil.closeSession();
 

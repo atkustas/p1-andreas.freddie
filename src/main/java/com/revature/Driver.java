@@ -53,9 +53,16 @@ public class Driver {
 
 		).start(8090);
 
-		//function
-		app.post("/login", lc.loginHandler);
-		app.get("/alltickets", rc.allTicketsHandler);
+		//Endpoints & Handlers with who can use commented
+		app.post("/login", lc.loginHandler); //all users
+		app.get("/alltickets", rc.allTicketsHandler); //managers
+		app.post("newticket", rc.insertTicketHandler); //all users
+		app.post("/updateticketamount", rc.updateTicketHandler); //all users
+		app.post("updateticketstatus", rc.updateTicketStat); //managers
+		app.get("/userticketsemp", rc.findPastTicketsEmp); //all users
+		app.get("/userticketsmang", rc.findPastTicketsMang); //managers
+		app.get("/ticketsbystatus", rc.findTicketsByStat); //managers
+		app.get("/ticketsbytype", rc.findTicketsByType); //managers
 		
 
 		// ***************************************(Test CRUD Commands)
