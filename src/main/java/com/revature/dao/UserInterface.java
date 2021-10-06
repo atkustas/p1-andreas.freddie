@@ -2,6 +2,7 @@ package com.revature.dao;
 
 import java.util.List;
 
+import com.revature.models.Reimbursement;
 import com.revature.models.User;
 
 public interface UserInterface {
@@ -11,4 +12,6 @@ public interface UserInterface {
 	public List<User> findAllUsers();
 
 	public User userLogin(String username);
+	
+	public User findUserByName(String username);
 }

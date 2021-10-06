@@ -9,12 +9,15 @@ public class LoginService {
 	UserDao ud = new UserDao();
 
 	public boolean login(String username, String password) {
-
+//updated anf need to be pushed
 		// check db for username
 		User user = ud.userLogin(username);
+		
+				Boolean areEqual = 	username.equals(user.getUsername());
+				Boolean areEqual2 = password.equals(user.getPassword());
 
 		// check that user password in database matches input
-		if (user.getUsername() == username && user.getPassword() == password) {
+		if (areEqual && areEqual2) {
 
 			return true;
 

@@ -41,12 +41,24 @@ public class UserDao implements UserInterface {
 
 	@Override
 	public User userLogin(String username) {
-
+		//updated anf need to be pushed
+		User temp = new User();
+		
+		System.out.println("========================================");
+		System.out.println("logging finduser by name");
+		System.out.println(findUserByName(username));
+		temp=findUserByName(username);
+		System.out.println("logging user pulled");
+		System.out.println(temp);
+		System.out.println("========================================");
+		
+		int tempID = temp.getId();
+		
 		// open connection
 		Session ses = HibernateUtil.getSession();
 
 		// get user
-		User user = ses.get(User.class, username);
+		User user = ses.get(User.class, tempID);
 
 		// close connection
 		HibernateUtil.closeSession();
@@ -54,5 +66,48 @@ public class UserDao implements UserInterface {
 		return user;
 
 	}
+
+	@Override
+	public User findUserByName(String username) {
+		//updated anf need to be pushed
+		//User temp = new User();
+		int tempID = 0;
+		
+		
+				//retrieve users from database
+				List<User> allUser = findAllUsers();
+				System.out.println(username);
+				for (User u : allUser) {
+					System.out.println(u);
+					Boolean areEqual = 	username.equals(u.getUsername());
+					if(areEqual) 
+					{
+						System.out.println("===================================");
+						
+						User temp = u;
+						
+						System.out.println(temp);
+						
+						tempID=temp.getId();
+						
+						System.out.println("===================================");
+						
+					}
+					//System.out.println(temp);
+				}
+				
+			
+		
+		Session ses = HibernateUtil.getSession();
+
+		User ticket = ses.get(User.class, tempID);
+		
+		System.out.println(ticket);
+
+		HibernateUtil.closeSession();
+
+		return ticket;
+	}
+	
 
 }
