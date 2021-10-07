@@ -39,36 +39,8 @@ public class ReStatusDao implements ReStatusInterface{
 		
 		HibernateUtil.closeSession();
 		
-		
 
-		
 	}
-
-	@Override
-	public void changeStatusById(Reimbursement ticket, ReStatus status, int id) {
-		
-		Session ses = HibernateUtil.getSession();
-		
-		Transaction tran = ses.beginTransaction();
-		
-		//make query into HQL String
-		String HQL = "UPDATE ReStatus Set re_status_id = '" + status.getRe_status_id() + "'WHERE re_id = "
-				+ id;
-		
-	
-
-		// make query object from HQL
-		Query q = ses.createQuery(HQL);
-
-		// send update to database
-		q.executeUpdate();
-
-		// close transaction & session
-		tran.commit();
-		HibernateUtil.closeSession();
-		
-	}
-
 	
 	
 

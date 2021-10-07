@@ -2,6 +2,7 @@ package com.revature.controllers;
 
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.google.gson.Gson;
 import com.revature.models.ReStatus;
 import com.revature.models.ReType;
@@ -15,6 +16,7 @@ public class ReimbController {
 	
 	ReimbService rServ = new ReimbService();
 	
+	//works in Postman
 	public Handler allTicketsHandler = (ctx) -> {
 		
 		if(ctx.req.getSession(false)!= null) {
@@ -39,12 +41,14 @@ public class ReimbController {
 		
 	};
 	
+	//works in Postman
 	public Handler insertTicketHandler = (ctx) -> {
 		
 		if(ctx.req.getSession(false)!= null) {
 			
 			//make ticket object from JS
 			Reimbursement ticket = ctx.bodyAsClass(Reimbursement.class);
+		
 			
 			//push ticket object through Service to DAO
 			rServ.insertTicket(ticket);
@@ -58,6 +62,7 @@ public class ReimbController {
 		
 	};
 	
+	//works in Postman
 	public Handler updateTicketHandler = (ctx) -> {
 		
 		if(ctx.req.getSession(false)!= null) {
@@ -95,6 +100,7 @@ public class ReimbController {
 		}
 	};
 	
+	//works in Postman
 	public Handler findPastTicketsEmp = (ctx) -> {
 		
 		if (ctx.req.getSession(false)!= null) {

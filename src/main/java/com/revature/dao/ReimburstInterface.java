@@ -29,6 +29,5 @@ public interface ReimburstInterface {
 
 	public void updateTicketStatAPP(Reimbursement ticket);
 
-	public void updateTicketStatDEN(Reimbursement ticket);
 
 }

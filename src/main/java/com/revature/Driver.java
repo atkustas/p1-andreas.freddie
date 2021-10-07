@@ -96,21 +96,27 @@ public class Driver {
 		// **********************************(reimburstment test)
 
 		//creating ticket statuses
-		ReStatus good = new ReStatus("Approved");
-		ReStatus bad = new ReStatus("Denied");
+		ReStatus approved = new ReStatus("Approved");
+		ReStatus denied = new ReStatus("Denied");
+		ReStatus pending = new ReStatus("Pending");
 
-		ReType pass = new ReType("Pending");
-		ReType approved = new ReType("Seen");
+		ReType business = new ReType("Business");
+		ReType travel = new ReType("Travel");
+		ReType medical = new ReType("Medical");
+		ReType other = new ReType("Other");
 
 		//creating reimbursement tickets
 		Reimbursement ticket1 = new Reimbursement(15, "noon", "next-day", "Fred's ticket on food", null, emp1, mang1,
-				good, approved);
-		Reimbursement ticket2 = new Reimbursement(35, "11:15", "n/a", "Andres's ticket on food", null, emp2, null, bad,
-				pass);
+				approved, other);
+		Reimbursement ticket2 = new Reimbursement(35, "11:15", "n/a", "Andres's ticket on food", null, emp2, null, denied,
+				other);
+		Reimbursement ticket3 = new Reimbursement(99.99, "10:30", "n/a", "Gas", null, emp2, null, pending,
+				travel);
 
 		//add tickets to database
 		rbDao.insertTicket(ticket1);
 		rbDao.insertTicket(ticket2);
+		rbDao.insertTicket(ticket3);
 
 		//retrieve tickets from database
 		List<Reimbursement> allTickets = rbDao.findAllTickets();
@@ -131,8 +137,8 @@ public class Driver {
 		System.out.println("\n\n**********************************");
 
 		//update ticket
-		ticket2.setRe_status_id(good);
-		ticket2.setFlieds(1, 1, "12:50", mang1, good, approved);
+		ticket2.setRe_status_id(approved);
+		ticket2.setFields(1, 1, "12:50", mang1, approved, other);
 		
 		
 		// to aprove or deny a ticket what needs to be changed/updated?
@@ -143,7 +149,7 @@ public class Driver {
 		System.out.println("\nPrint NEW Movie Title by ID");
 		System.out.println("\n\n**********************************");
 
-		System.out.println(rbDao.findTicketById(2));
+		System.out.println(rbDao.findPastTicketsEmp(emp1));
 
 	}// end of main
 

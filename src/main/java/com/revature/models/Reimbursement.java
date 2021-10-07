@@ -244,7 +244,7 @@ public class Reimbursement {
 		return true;
 	}
 
-	public void setFlieds(int good, int pending, String resloveDate, User re_resolver, ReStatus re_status_id,
+	public void setFields(int good, int pending, String resloveDate, User re_resolver, ReStatus re_status_id,
 			ReType re_type_id) {
 		// good = 1;
 		// pending = 1;

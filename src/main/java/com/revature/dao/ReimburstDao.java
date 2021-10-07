@@ -49,7 +49,7 @@ public class ReimburstDao implements ReimburstInterface {
 
 		Session ses = HibernateUtil.getSession();
 
-		List<Reimbursement> empReimb = ses.createQuery("FROM Reimbursement where re_author = " + user.getId()).list();
+		List<Reimbursement> empReimb = ses.createQuery("FROM Reimbursement WHERE re_author = " + user.getId()).list();
 
 		HibernateUtil.closeSession();
 
@@ -186,12 +186,6 @@ public class ReimburstDao implements ReimburstInterface {
 		// close transaction and session to prevent memory leak
 		tran.commit();
 		HibernateUtil.closeSession();
-
-	}
-
-	@Override
-	public void updateTicketStatDEN(Reimbursement ticket) {
-		// TODO Auto-generated method stub
 
 	}
 
