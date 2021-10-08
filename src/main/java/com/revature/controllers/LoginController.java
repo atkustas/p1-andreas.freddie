@@ -2,7 +2,9 @@ package com.revature.controllers;
 
 import com.google.gson.Gson;
 import com.revature.models.LoginDTO;
+import com.revature.models.User;
 import com.revature.services.LoginService;
+import com.revature.services.UserService;
 import com.revature.utils.JwtUtil;
 
 import io.javalin.http.Handler;
@@ -38,5 +40,51 @@ public class LoginController {
 			ctx.result("Login failed.");
 		}
 	};
+	
+	UserService as = new UserService();
+
+	/*
+	 * public Handler updateUserHandler = (ctx) -> {
+		
+		if(ctx.req.getSession(false)!= null) {
+			
+			//parse JSON to ticket
+			User allUser = ctx.bodyAsClass(User.class);
+			
+			//push ticket object through Service to DAO
+			as.updateUser(allUser);
+			
+			//report success
+			ctx.status(200);
+			
+		} else {
+			ctx.status(403);
+		}
+		
+	};
+	 * */
+
+	public Handler getUserHandler = (ctx) -> {
+
+		if(ctx.req.getSession(false) != null) {
+			//int temp = temp.getRole_id();
+		User allUser = null;//as.getUserRole(ID);
+			//mak a list
+		//search through that list to match user log in
+		//update tole id into user that log in
+		Gson gson = new Gson();
+
+		String JSONUser = gson.toJson(allUser);
+
+		ctx.result(JSONUser);
+
+		ctx.status(200);
+
+	} else {
+		ctx.status(403);
+	}
+
+};
+
 
 }

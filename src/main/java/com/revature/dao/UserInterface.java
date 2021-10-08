@@ -14,4 +14,8 @@ public interface UserInterface {
 	public User userLogin(String username);
 	
 	public User findUserByName(String username);
+	
+	public User getUserRole(int ID);
+
+	User findUserByID(int id);
 }
