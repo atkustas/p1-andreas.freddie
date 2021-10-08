@@ -5,17 +5,18 @@ document.getElementById("loginButton").addEventListener("click", loginFunc);
 
 
 //login functionalltiy
-async function loginFunc(){
+async function loginFunc() {
 
     let usern = document.getElementById("username").value;
     let userp = document.getElementById("password").value;
 
     //we want to send the user/pass as JSON, so we need to make a JS object to send
-    let user= {
-        username:usern,
-        password:userp
+    let user = {
+        username: usern,
+        password: userp,
+        role_id: role = null
     }
-    
+
     console.log(user);
 
     let response = await fetch(url + "login", {
@@ -25,15 +26,35 @@ async function loginFunc(){
         credentials: "include"
     });
 
+    let response2 = await fetch(url + "logins", {
+
+        //method: "PATCH",
+        // body: JSON.stringify(user),
+        credentials: "include"
+    });
+
+    let data = await response2.json();
+
     console.log(response.status);
 
-    if(response.status === 200){
+    if (response.status === 200) {
 
-        document.getElementById("login-row").innerText="Welcome!"
+        document.getElementById("login-row").innerText = "Welcome!"
 
 
-    }else{
-        document.getElementById("login-row").innerText="Login failed! Check credentials and try again."
+        for (let user of data) {
+            if (user.role = 1) {
+                let empPage = window.location.href = 'ERSemployee.html'
+            }
+            if (user.role = 2) {
+                let empMang = window.location.href = 'ERSmanager.html'
+            }
+        }
+
+
+    } else {
+        document.getElementById("login-row").innerText = "Login failed! Check credentials and try again."
     }
+
 
 }
