@@ -63,6 +63,7 @@ public class Driver {
 		app.get("/userticketsmang", rc.findPastTicketsMang); //managers
 		app.get("/ticketsbystatus", rc.findTicketsByStat); //managers
 		app.get("/ticketsbytype", rc.findTicketsByType); //managers
+		app.post("/updateticketmang", rc.updateTicketMang); //managers
 		
 
 		// ***************************************(Test CRUD Commands)

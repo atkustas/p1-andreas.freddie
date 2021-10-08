@@ -205,6 +205,25 @@ public class ReimbController {
 		}
 		
 	};
+	
+	public Handler updateTicketMang = (ctx) -> {
+		
+		if(ctx.req.getSession(false)!= null) {
+			
+		//parse JSON to ticket
+		Reimbursement ticket = ctx.bodyAsClass(Reimbursement.class);
+		
+		//push ticket through Service to DAO
+		rServ.updateTicketStat(ticket);
+		
+		//report success
+		ctx.status(200);
+		
+		} else {
+			ctx.status(403);
+		}
+		
+	};
 
 
 }
