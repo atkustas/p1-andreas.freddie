@@ -1,0 +1,33 @@
+#MasterForm{
+
+    visibility: hidden;
+
+    border-style:solid;
+    border-color: black;
+    border-width: .5em;
+ 
+}
+
+#ticketList{
+
+    visibility: hidden;
+ 
+}
+
+#ticketList2{
+
+    visibility: hidden;
+ 
+}
+
+#updateApp{
+
+    visibility: hidden;
+ 
+}
+
+#updateApp2{
+
+    visibility: hidden;
+ 
+}
