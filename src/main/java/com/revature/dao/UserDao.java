@@ -152,10 +152,25 @@ public class UserDao implements UserInterface {
 		return ticket;
 	}
 	
+
+	
 	@Override
 	public User getUserRole(int ID) {
 		// TODO Auto-generated method stub
 		User user = findUserByID(ID);
+		
+		return user;
+	}
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<User> findUserByCredentials(String username, String password) {
+		
+		Session ses = HibernateUtil.getSession();
+		
+		List<User> user = ses.createQuery("FROM User WHERE username = '" + username + "' AND password = '" + password + "'").list();
+		
+		HibernateUtil.closeSession();
 		
 		return user;
 	}

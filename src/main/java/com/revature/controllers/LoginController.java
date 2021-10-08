@@ -1,5 +1,7 @@
 package com.revature.controllers;
 
+import java.util.List;
+
 import com.google.gson.Gson;
 import com.revature.models.LoginDTO;
 import com.revature.models.User;
@@ -34,6 +36,18 @@ public class LoginController {
 			ctx.status(200);
 
 			ctx.result("Login successful. JWT is: " + jwt);
+			
+			//get user object based on credentials sent in
+			List<User> user = ls.findUserByCredentials(LDTO.getUsername(), LDTO.getPassword());
+			
+			//second gson conversion
+			Gson gson2 = new Gson();
+			
+			//convert Java user to JSON
+			String JSONuser = gson2.toJson(user);
+			
+			//send back user
+			ctx.result(JSONuser);
 
 		} else {
 			ctx.status(401); // unauthorized status code
@@ -85,6 +99,7 @@ public class LoginController {
 	}
 
 };
+
 
 
 }

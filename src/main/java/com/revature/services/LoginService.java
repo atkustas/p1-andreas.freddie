@@ -1,5 +1,7 @@
 package com.revature.services;
 
+import java.util.List;
+
 import com.revature.dao.UserDao;
 import com.revature.models.User;
 
@@ -26,5 +28,11 @@ public class LoginService {
 		return false;
 
 	}
+	
+	public List<User> findUserByCredentials(String username, String password){
+		
+		return ud.findUserByCredentials(username, password);
+	}
+
 
 }

@@ -17,5 +17,7 @@ public interface UserInterface {
 	
 	public User getUserRole(int ID);
 
-	User findUserByID(int id);
+	public User findUserByID(int id);
+	
+	public List<User> findUserByCredentials (String username, String password);
 }

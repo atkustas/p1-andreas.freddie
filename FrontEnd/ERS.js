@@ -26,30 +26,35 @@ async function loginFunc() {
         credentials: "include"
     });
 
-    let response2 = await fetch(url + "logins", {
 
-        //method: "PATCH",
-        // body: JSON.stringify(user),
-        credentials: "include"
-    });
-
-    let data = await response2.json();
 
     console.log(response.status);
 
     if (response.status === 200) {
 
+    //     let response2 = await fetch(url + "logins", {
+
+    //         method: "GET",
+    //         credentials: "include"
+    //     });
+    
+        let data = await response.json();
+
         document.getElementById("login-row").innerText = "Welcome!"
 
 
+
         for (let user of data) {
-            if (user.role = 1) {
+
+            console.log(user);
+
+            if (user.role_id.roleID == 1) {
                 let empPage = window.location.href = 'ERSemployee.html'
             }
-            if (user.role = 2) {
+            if (user.role_id.roleID == 2) {
                 let empMang = window.location.href = 'ERSmanager.html'
             }
-        }
+       }
 
 
     } else {
