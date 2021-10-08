@@ -37,17 +37,7 @@ public class LoginController {
 
 			ctx.result("Login successful. JWT is: " + jwt);
 			
-			//get user object based on credentials sent in
-			List<User> user = ls.findUserByCredentials(LDTO.getUsername(), LDTO.getPassword());
 			
-			//second gson conversion
-			Gson gson2 = new Gson();
-			
-			//convert Java user to JSON
-			String JSONuser = gson2.toJson(user);
-			
-			//send back user
-			ctx.result(JSONuser);
 
 		} else {
 			ctx.status(401); // unauthorized status code
@@ -99,6 +89,28 @@ public class LoginController {
 	}
 
 };
+
+	public Handler pageHandler = (ctx) -> {
+		
+		if(ctx.req.getSession(false) != null) {
+			
+		String body = ctx.body();
+		
+		Gson gson = new Gson();
+		
+		LoginDTO LDTO = gson.fromJson(body, LoginDTO.class);
+		
+		//get user object based on credentials sent in
+		List<User> user = ls.findUserByCredentials(LDTO.getUsername(), LDTO.getPassword());
+		
+		//convert Java user to JSON
+		String JSONuser = gson.toJson(user);
+		
+		//send back user
+		ctx.result(JSONuser);
+		}
+		
+	};
 
 
 

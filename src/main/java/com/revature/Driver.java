@@ -55,6 +55,7 @@ public class Driver {
 
 		//Endpoints & Handlers with who can use commented
 		app.post("/login", lc.loginHandler); //all users
+		app.post("/redirect", lc.pageHandler);
 		app.get("/logins", lc.getUserHandler); //all users
 		app.get("/alltickets", rc.allTicketsHandler); //managers
 		app.post("newticket", rc.insertTicketHandler); //all users

@@ -27,22 +27,21 @@ async function loginFunc() {
     });
 
 
-
     console.log(response.status);
+    console.log(response.body);
 
     if (response.status === 200) {
 
-    //     let response2 = await fetch(url + "logins", {
-
-    //         method: "GET",
-    //         credentials: "include"
-    //     });
-    
-        let data = await response.json();
-
         document.getElementById("login-row").innerText = "Welcome!"
 
+        let response2 = await fetch(url + "redirect", {
 
+            method: "POST",
+            body: JSON.stringify(user),
+            credentials: "include"
+        });
+    
+        let data = await response2.json();
 
         for (let user of data) {
 
