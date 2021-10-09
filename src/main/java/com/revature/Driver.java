@@ -59,13 +59,18 @@ public class Driver {
 		app.get("/logins", lc.getUserHandler); //all users
 		app.get("/alltickets", rc.allTicketsHandler); //managers
 		app.post("newticket", rc.insertTicketHandler); //all users
-		app.post("/updateticketamount", rc.updateTicketHandler); //all users
-		app.post("updateticketstatus", rc.updateTicketStat); //managers
-		app.get("/userticketsemp", rc.findPastTicketsEmp); //all users
+		app.post("/userticketsemp", rc.findPastTicketsEmp); //all users
 		app.get("/userticketsmang", rc.findPastTicketsMang); //managers
+		app.post("/ticketbyid", rc.viewTicketById); //all users
+		app.post("/approvedeny", rc.approveDeny); //managers
+		
+		
+		//UNUSED
+		app.post("/updateticketmang", rc.updateTicketMang); //managers
+		app.post("updateticketstatus", rc.updateTicketStat); //managers
 		app.get("/ticketsbystatus", rc.findTicketsByStat); //managers
 		app.get("/ticketsbytype", rc.findTicketsByType); //managers
-		app.post("/updateticketmang", rc.updateTicketMang); //managers
+		app.post("/updateticketamount", rc.updateTicketHandler); //all users
 		
 
 		// ***************************************(Test CRUD Commands)

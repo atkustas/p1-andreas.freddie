@@ -154,6 +154,7 @@ public class ReimbController {
 		
 	};
 	
+	//NOT TESTED IN POSTMAN
 	public Handler findTicketsByStat = (ctx) -> {
 		
 		if(ctx.req.getSession(false)!= null) {
@@ -180,6 +181,7 @@ public class ReimbController {
 		
 	};
 	
+	//NOT TESTED IN POSTMAN
 	public Handler findTicketsByType = (ctx) -> {
 		
 		if(ctx.req.getSession(false)!= null) {
@@ -224,6 +226,40 @@ public class ReimbController {
 			ctx.status(403);
 		}
 		
+	};
+	
+	public Handler approveDeny = (ctx) -> {
+		
+		if(ctx.req.getSession(false)!= null) {
+			
+		//parse JSON to ticket
+		Reimbursement ticket = ctx.bodyAsClass(Reimbursement.class);
+		
+		//push ticket through Service to DAO
+		rServ.updateTicketStat(ticket);
+		
+		//report success
+		ctx.status(200);
+		
+		} else {
+			ctx.status(403);
+		}
+		
+	};
+	
+	public Handler viewTicketById = (ctx) -> {
+		
+		if(ctx.req.getSession(false) != null) {
+			
+		Reimbursement ticket = ctx.bodyAsClass(Reimbursement.class);
+		
+		rServ.findTicketById(ticket.getRe_id());
+		
+		ctx.status(200);
+			
+		} else {
+			ctx.status(403);
+		}
 	};
 
 
