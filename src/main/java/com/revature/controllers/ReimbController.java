@@ -1,8 +1,6 @@
 package com.revature.controllers;
 
 import java.util.List;
-
-import com.fasterxml.jackson.annotation.JsonFormat;
 import com.google.gson.Gson;
 import com.revature.models.ReStatus;
 import com.revature.models.ReType;
