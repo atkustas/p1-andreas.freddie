@@ -1,0 +1,2 @@
+2021-10-10 12:00:16 INFO  LoginService:28 - Fred Smithlogged in with username: Dawn and password: Action
+2021-10-10 12:24:31 INFO  LoginService:28 - Fred Smithlogged in with username: Dawn and password: Action

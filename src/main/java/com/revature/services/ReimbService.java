@@ -32,7 +32,7 @@ public class ReimbService {
 	
 	public void updateTicket(Reimbursement ticket) {
 		
-		log.info("Ticket " + ticket.getRe_id() + " updated in database.");
+		log.info("Ticket #" + ticket.getRe_id() + " updated in database.");
 		
 		rDao.updateTicket(ticket);
 	}
@@ -66,7 +66,7 @@ public class ReimbService {
 	
 	public void updateTicketStatAPP(Reimbursement ticket) {
 		
-		log.info("Manager updated ticket " +ticket.getRe_id() + " status.");
+		log.info("Manager updated ticket #" +ticket.getRe_id() + " status.");
 		
 		rDao.updateTicketStatAPP(ticket);
 	}

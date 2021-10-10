@@ -25,7 +25,7 @@ public class LoginService {
 		// check that user password in database matches input
 		if (areEqual && areEqual2) {
 			
-			log.info(user.getFirstName() +" "+ user.getLastName() + "logged in with username: " +user.getUsername() + " and password: " +user.getPassword());
+			log.info(user.getFirstName() +" "+ user.getLastName() + " logged in with username: " +user.getUsername() + " and password: " +user.getPassword());
 
 			return true;
 
