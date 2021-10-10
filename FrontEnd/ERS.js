@@ -321,7 +321,7 @@ document.getElementById("empsubForm").addEventListener("click", changeHideEmpFor
 
 //show/hide list forms
 document.getElementById("viewEmp").addEventListener("click", changeVisEmpList);
-document.getElementById("listButEmpD").addEventListener("click", changeHideEmpList);
+document.getElementById("manListButD").addEventListener("click", changeHideEmpList);
 
 //show/hide update forms
 document.getElementById("updateEmp").addEventListener("click", changeVisUpdateEmp);

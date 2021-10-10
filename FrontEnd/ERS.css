@@ -1,28 +1,28 @@
-#fullcontainer{
-    display: flex;
+#logincontainer{
+    display: center;
     justify-content: center;
     
     }
 
+    
 #homeheader-row{
 
     margin: 0;
-    position: absolute;
-    top: 20%;
-    left: 60%;
+    position: relative;
+    top: 10%;
 
 }
 
-#login-row{
+    /* #login-row{
 
-    float: left;
-    margin: 0;
-    position: absolute;
-    top: 50%;
-    left: 60%;
-    transform: translate(-50%, -50%);
-
-}
+        float: left;
+        margin: 0;
+        position: absolute;
+        top: 50%;
+        left: 60%;
+        transform: translate(-50%, -50%);
+    
+    } */
 
 #employeeMainCon{
 
