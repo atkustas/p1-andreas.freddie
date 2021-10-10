@@ -56,9 +56,13 @@ async function loginFunc() {
             if (user.role_id.roleID == 1) {
                //display employee container / buttons
                console.log("Showing employee portal");
+               changeVisEmpPage();
+               console.log("Showing employee portal");
             }
             if (user.role_id.roleID == 2) {
                 //display manager container / buttons
+                console.log("Showing manager portal");
+                changeVisManPage();
                 console.log("Showing manager portal");
             }
        }
@@ -203,4 +207,115 @@ async function approveDeny(){
 
 }
 
+//Manger functions
+
+//normal emp forms and bhuttons
+document.getElementById("addMan").addEventListener("click", changeVisFormManTick);
+document.getElementById("viewMan").addEventListener("click", changeVisListManSelf);
+document.getElementById("updateMan").addEventListener("click", changeVisUpdateManSelf);
+
+document.getElementById("mansubForm").addEventListener("click", changeVisFormManTick);
+document.getElementById("subUpMan").addEventListener("click", changeVisUpdateManSelf);
+
+//manger special forms/list and buttons
+document.getElementById("subUpMan2").addEventListener("click", changeVisUpdateManEmp);
+document.getElementById("viewEmpMan").addEventListener("click", changeVisListManEmp);
+document.getElementById("updateStatMan").addEventListener("click", changeVisUpdateManEmp);
+
+document.getElementById("manListButD").addEventListener("click", changeVisListManSelf);
+document.getElementById("manEmpListButD").addEventListener("click", changeVisListManEmp);
+
+//document.getElementById("subForm2").addEventListener("click", changeVisForm3);
+
+function changeVisManPage() {
+
+    document.getElementById("ManMainCon").style.visibility = "visible";
+
+}
+
+
+function changeVisFormManTick() {
+
+    document.getElementById("ManMasterForm").style.visibility =  !document.getElementById("ManMasterForm").style.visibility;
+
+}
+
+
+function changeVisListManEmp() {
+
+
+    document.getElementById("ManticketList").style.visibility = !document.getElementById("ManticketList").style.visibility;
+
+
+}
+
+function changeVisListManSelf() {
+
+
+    document.getElementById("ManticketList2").style.visibility =  !document.getElementById("ManticketList2").style.visibility;
+
+
+}
+
+function changeVisUpdateManSelf() {
+
+    document.getElementById("updateAppMan").style.visibility = !document.getElementById("updateAppMan").style.visibility;
+
+}
+
+function changeVisUpdateManEmp() {
+
+    document.getElementById("updateAppMan2").style.visibility = !document.getElementById("updateAppMan2").style.visibility;
+
+}
+
+
+//Employee Functions
+//sprite toggles
+var TicketForm = new Boolean(false);
+var ListEmp = new Boolean(false);
+var UpForm = new Boolean(false);
+
+document.getElementById("addEmp").addEventListener("click", changeVisEmpForm);
+document.getElementById("empsubForm").addEventListener("click", changeVisEmpForm);
+
+document.getElementById("viewEmp").addEventListener("click", changeVisEmpList);
+document.getElementById("listButEmpD").addEventListener("click", changeVisEmpList);
+
+document.getElementById("updateEmp").addEventListener("click", changeVisUpdateEmp);
+document.getElementById("empsubUp").addEventListener("click", changeVisUpdateEmp);
+
+
+
+function changeVisEmpPage(){
+
+    document.getElementById("employeeMainCon").style.visibility= "visible";
+
+}
+
+function changeVisEmpForm(){
+
+    this.TicketForm = !this.TicketForm;
+    console.log(TicketForm);
+
+    document.getElementById("EmpMasterForm").style.visibility= !document.getElementById("EmpMasterForm").style.visibility;
+
+}
+
+function changeVisEmpList(){
+
+    this.ListEmp = !this.ListEmp;
+    
+    document.getElementById("ticketListEmp").style.visibility= !document.getElementById("ticketListEmp").style.visibility;
+    
+
+}
+
+function changeVisUpdateEmp(){
+    
+    this.UpForm = !this.UpForm;
+
+    document.getElementById("empupdateApp").style.visibility= !document.getElementById("empupdateApp").style.visibility;
+
+}
 

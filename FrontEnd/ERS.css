@@ -1,10 +1,10 @@
-.container{
+#fullcontainer{
     display: flex;
     justify-content: center;
     
     }
 
-#header-row{
+#homeheader-row{
 
     margin: 0;
     position: absolute;
@@ -13,7 +13,7 @@
 
 }
 
-div.row{
+#login-row{
 
     float: left;
     margin: 0;
@@ -22,5 +22,73 @@ div.row{
     left: 60%;
     transform: translate(-50%, -50%);
 
+}
+
+#employeeMainCon{
+
+    visibility: hidden;
+
+}
+
+#EmpMasterForm{
+
+    visibility: hidden;
+
+    border-style:solid;
+    border-color: black;
+    border-width: .5em;
+ 
+}
+
+#ticketListEmp{
+
+    visibility: hidden;
+ 
+}
+
+#empupdateApp{
+
+    visibility: hidden;
+ 
+}
+
+#ManMainCon{
+
+    visibility: hidden;
+
+}
+
+#ManMasterForm{
+
+    visibility: hidden;
+
+    border-style:solid;
+    border-color: black;
+    border-width: .5em;
+ 
+}
+
+#ManticketList{
+
+    visibility: hidden;
+ 
+}
+
+#ManticketList2{
+
+    visibility: hidden;
+ 
+}
+
+#updateAppMan{
+
+    visibility: hidden;
+ 
+}
+
+#updateAppMan2{
+
+    visibility: hidden;
+ 
 }
 

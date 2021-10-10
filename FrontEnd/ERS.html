@@ -16,7 +16,7 @@
     <div class="container" id="fullcontainer">
 
         
-        <div id="header-row" class="row col-sm-8">
+        <div id="homeheader-row" class="row col-sm-8">
             <h1 id=myHeader>Expense Reimbursement System</h1>
         </div>
 
@@ -44,16 +44,14 @@
 
         </div>
 
-
-        <br>
-        <br>
-
-        
-
-
-
-
     </div>
+
+
+        <br>
+        <br>
+
+
+   <div id="buttonTest"> 
 
     <div float = "left">
         <button id="view" type="button" class="btn btn-light">View My Reimbursement Requests</button>
@@ -64,6 +62,466 @@
     <div float = "left">
         <button id="viewEmp" type="button" class="btn btn-light">View Employee Reimbursement Requests</button>
     </div>
+
+</div>
+
+
+    <div id="employeeMainCon" class="container">
+
+
+        <div id="masterHeadersEmp">
+          <div id="headerEmpPort-row">
+              <h1 id=empHeader>Employee Reimbursement Portal</h1>
+          </div>
+  
+          <div id="headerAdd-row">
+              <h2 id=empSddHeader>Tickets Employee Reimbursement</h2>
+          </div>
+  
+          <div class="empChoice">
+              <ul id="empbuttonList">
+                  <li>
+                      <button id="addEmp" type="button" class="btn btn-light">Add Reimbursement Request</button>
+                  </li>
+                  <li>
+                      <button id="updateEmp" type="button" class="btn btn-light">Update Reimbursement Request</button>
+                  </li>
+                  <li>
+                      <button id="viewEmp" type="button" class="btn btn-light">View My Reimbursement Requests</button>
+                  </li>
+              </ul>
+          </div>
+      </div>
+  
+      <br>
+  
+      <div id="Emplogout"class="Emplogout">
+      <ul>
+          <li>
+              <button onclick="window.location.href='ERS.html'">Log Out</button>
+          </li>
+      </ul>
+    </div>
+  
+  
+  
+      <br>
+      <br>
+  
+      <div class="Empoutput">
+  
+          <div id="ticketListEmp" class="outputListEmp">
+             
+              <br>
+  
+              <button type="button" class="btn-primary" id="listButEmpD">Done</button>
+              <div class="accordion" id="accordionEmpL">
+                  <div class="accordion-item">
+                      <h2 class="accordion-header" id="headingOneEmp">
+                          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                              data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                              Accordion Item #1
+                          </button>
+                      </h2>
+                      <div id="empcollapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne"
+                          data-bs-parent="#accordionExample">
+                          <div class="accordion-body">
+                              (userid#)- Henry (get lastname)'s ticket (id#) for hosting lunch, (get type), $55, submitted 12/26/2020, reslove:N/A, ResloverID#:N/A
+                          </div>
+                      </div>
+                  </div>
+                  <div class="accordion-item">
+                      <h2 class="accordion-header" id="headingTwoEmp">
+                          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                              data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                              Update Placeholder?
+                          </button>
+                      </h2>
+                      <div id="empcollapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
+                          data-bs-parent="#accordionExample">
+                          <div class="accordion-body">
+                              ticket info... to be updated
+                          </div>
+                      </div>
+                  </div>
+            
+              </div>
+  
+  
+          </div>
+  
+  
+  
+  
+  
+  
+          <br>
+  
+          <div id="EmpMasterForm">
+          <form>
+  
+  <div>
+    <h3>Reimbursement Form</h3>
+  <br>
+  <p>To sumbit a new Reimbursement ticket please sumbit the follow information: </p>
+  </div>
+  
+              <div id="empform1" class="form-group">
+                  <label for="FormControlInputAmt">Amount ($)</label><br>
+                  <input type="text" class="form-control" name="Amount" id="EmpFormControlInputAmt" placeholder="($$)"><br>
+              </div>
+  
+  
+              <div id="empform2" class="form-group">
+                  <label for="FormControlFile1">Recpiet File Input</label><br>
+                  <p>
+                    (This is not required)
+                  </p>
+                  <input type="file" class="form-control-file" id="EmpFormControlFile2"><br>
+              </div>
+  
+  <br>
+              <div id="empform3" class="form-group">
+                  <label for="FormControlTextarea1">Desricbe your Reimbursement</label>
+                  <br><textarea class="form-control" id="EmpFormControlTextarea1" rows="3"></textarea>
+                  <br>
+              </div>
+  
+              <div id="empform4" class="form-group">
+                <label for="EmpFormControlInputDate">Date(XX/XX/XXXX)</label><br>
+                  <input type="text" class="form-control" name="Date" id="EmpFormControlInputDate" placeholder="10/05/2021"><br>
+             
+            </div>
+  
+            <div id="empform5" class="form-group">
+              <label for="exampleFormControlSelect1">Example select</label>
+              <select class="form-control" id="exampleFormControlSelect1">
+                <option>Food</option>
+                <option>Travel</option>
+                <option>Training</option>
+                <option>Supplies</option>
+                <option>Medical</option>
+                <option>Misc</option>
+              </select>
+              <br>
+          </div>
+  
+              <button id="empsubForm" type="submit" class="btn btn-primary">Submit</button>
+  
+          </form>
+  
+        </div>
+  
+  
+  <br>
+  
+  
+  
+          <div id="empupdateApp" class="empupdateForm">
+              <!--load correct form or table of requests after button pushed-->
+              <p>Update PlaceHolder</p>
+              <button id="empsubUp" type="submit" class="btn btn-primary">Submit</button>
+          </div>
+  
+      </div>
+    </div>
+  
+
+    <div id ="ManMainCon"class="container">
+        <div id="masterHeadersMan">
+            <div id="mNheader-row" class="row col-sm-8">
+                <h1 id=myHeader>Manager Reimbursement Portal</h1>
+            </div>
+
+            <div id="headerManAdd-row">
+                <h2 id=myHeader>Tickets Employee Reimbursement</h2>
+            </div>
+
+            <div class="manChoice">
+                <ul id="manbuttonList">
+                    <li>
+                        <button id="addMan" type="button" class="btn btn-light">Add Reimbursement Request</button>
+                    </li>
+                    <li>
+                        <button id="updateMan" type="button" class="btn btn-light">Update Reimbursement Request</button>
+                    </li>
+                    <li>
+                        <button id="viewMan" type="button" class="btn btn-light">View My Reimbursement Requests</button>
+                    </li>
+                    <li>
+                        <button id="viewEmpMan" type="button" class="btn btn-light">View Employee Reimbursement Requests</button>
+                    </li>
+                    <li>
+                        <button id="updateStatMan" type="button" class="btn btn-light">Change Employee Request Status</button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+   
+
+    <br>
+
+    <div id="Manlogout" class="Manlogout">
+        <ul>
+            <li>
+                <button onclick="window.location.href='ERS.html'">Log Out</button>
+            </li>
+        </ul>
+
+
+    </div>
+
+
+    <div id ="ManOutputs"class="Manoutput">
+
+        <div id="ManticketList" class="manoutputList">
+            <!--load correct form or table of requests after button pushed-->
+
+            <!--
+            <div class="list-group">
+                <button type="button" class="list-group-item list-group-item-action active">
+                    Cras justo odio
+                </button>
+                <button type="button" class="list-group-item list-group-item-action">Dapibus ac facilisis in</button>
+                <button type="button" class="list-group-item list-group-item-action">Morbi leo risus</button>
+                <button type="button" class="list-group-item list-group-item-action">Porta ac consectetur ac</button>
+                <button type="button" class="list-group-item list-group-item-action" disabled>Vestibulum at eros</button>
+            </div>
+
+            -->
+
+            <!--
+                  <div class="row">
+  <div class="col-4">
+    <div class="list-group" id="list-tab" role="tablist">
+      <a class="list-group-item list-group-item-action active" id="list-home-list" data-toggle="list" href="#list-home" role="tab" aria-controls="home">Home</a>
+      <a class="list-group-item list-group-item-action" id="list-profile-list" data-toggle="list" href="#list-profile" role="tab" aria-controls="profile">Profile</a>
+      <a class="list-group-item list-group-item-action" id="list-messages-list" data-toggle="list" href="#list-messages" role="tab" aria-controls="messages">Messages</a>
+      <a class="list-group-item list-group-item-action" id="list-settings-list" data-toggle="list" href="#list-settings" role="tab" aria-controls="settings">Settings</a>
+    </div>
+  </div>
+  <div class="col-8">
+    <div class="tab-content" id="nav-tabContent">
+      <div class="tab-pane fade show active" id="list-home" role="tabpanel" aria-labelledby="list-home-list">...</div>
+      <div class="tab-pane fade" id="list-profile" role="tabpanel" aria-labelledby="list-profile-list">...</div>
+      <div class="tab-pane fade" id="list-messages" role="tabpanel" aria-labelledby="list-messages-list">...</div>
+      <div class="tab-pane fade" id="list-settings" role="tabpanel" aria-labelledby="list-settings-list">...</div>
+    </div>
+  </div>
+</div>
+-->
+
+            <!--
+    <div id="accordion">
+  <div class="card">
+    <div class="card-header" id="headingOne">
+      <h5 class="mb-0">
+        <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+          Collapsible Group Item #1
+        </button>
+      </h5>
+    </div>
+
+    <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+      <div class="card-body">
+        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-header" id="headingTwo">
+      <h5 class="mb-0">
+        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+          Collapsible Group Item #2
+        </button>
+      </h5>
+    </div>
+    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+      <div class="card-body">
+        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-header" id="headingThree">
+      <h5 class="mb-0">
+        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+          Collapsible Group Item #3
+        </button>
+      </h5>
+    </div>
+    <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
+      <div class="card-body">
+        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+      </div>
+    </div>
+  </div>
+</div>
+-->
+
+            <br>
+
+            <button type="button" class="btn-primary" id="manListButD">Done</button>
+            <div class="accordion" id="accordionMan1">
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingOneMan">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                            Accordion Item #1
+                        </button>
+                    </h2>
+                    <div id="manCollapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne"
+                        data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+                            (userid#)- Henry (get lastname)'s ticket (id#) for hosting lunch, (get type), $55, submitted
+                            12/26/2020, reslove:N/A, ResloverID#:N/A
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="manHeadingTwo">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                            Update Placeholder?
+                        </button>
+                    </h2>
+                    <div id="manCollapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
+                        data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+                            ticket info... to be updated
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+
+        </div>
+
+        <div id="ManticketList2" class="outputList">
+
+            <button type="button" class="btn-primary" id="manEmpListButD">Done</button>
+            <div class="accordion" id="accordionExample2">
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="manHeadingOne2">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                            Accordion Item #1
+                        </button>
+                    </h2>
+                    <div id="manCollapseOne2" class="accordion-collapse collapse" aria-labelledby="headingOne"
+                        data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+                            (userid#)- Henry (get lastname)'s ticket (id#) for hosting lunch, (get type), $55, submitted
+                            12/26/2020, reslove:N/A, ResloverID#:N/A
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="manHeadingTwo2">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                            Update Placeholder?
+                        </button>
+                    </h2>
+                    <div id="manCollapseTwo2" class="accordion-collapse collapse" aria-labelledby="headingTwo"
+                        data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+                            ticket info... to be updated
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+
+
+
+
+
+        <br>
+
+        <div id="ManMasterForm">
+            <form>
+
+                <div>
+                    <h3>Reimbursement Form</h3>
+                    <br>
+                    <p>To sumbit a new Reimbursement ticket please sumbit the follow information: </p>
+                </div>
+
+                <div id="manform1" class="form-group">
+                    <label for="FormControlInputAmt2">Amount ($)</label><br>
+                    <input type="text" class="form-control" name="Amount" id="FormControlInputAmt2" placeholder="($$)"><br>
+                </div>
+
+
+                <div id="manform2" class="form-group">
+                    <label for="FormControlFile3">Recpiet File Input</label><br>
+                    <p>
+                        (This is not required)
+                    </p>
+                    <input type="file" class="form-control-file" id="FormControlFile4"><br>
+                </div>
+
+                <br>
+                <div id="manform3" class="form-group">
+                    <label for="FormControlTextarea2">Desricbe your Reimbursement</label>
+                    <br><textarea class="form-control" id="FormControlTextarea2" rows="3"></textarea>
+                    <br>
+                </div>
+
+                <div id="manform4" class="form-group">
+                    <label for="FormControlInputDate2">Date(XX/XX/XXXX)</label><br>
+                    <input type="text" class="form-control" name="Date" id="FormControlInputDate2"
+                        placeholder="10/05/2021"><br>
+
+                </div>
+
+                <div id="manform5" class="form-group">
+                    <label for="exampleFormControlSelect2">Example select</label>
+                    <select class="form-control" id="exampleFormControlSelect2">
+                        <option>Food</option>
+                        <option>Travel</option>
+                        <option>Training</option>
+                        <option>Supplies</option>
+                        <option>Medical</option>
+                        <option>Misc</option>
+                    </select>
+                    <br>
+                </div>
+
+                <button id="mansubForm" type="submit" class="btn btn-primary">Submit</button>
+
+            </form>
+
+        </div>
+
+
+        <br>
+
+
+
+        <div id="updateAppMan" class="updateForm">
+            <!--load correct form or table of requests after button pushed-->
+            <p>Update PlaceHolder</p>
+            <button id="subUpMan" type="submit" class="btn btn-primary">Submit</button>
+        </div>
+
+
+        <div id="updateAppMan2" class="updateForm">
+            <!--load correct form or table of requests after button pushed-->
+            <p>Update PlaceHolder</p>
+            <button id="subUpMan2" type="submit" class="btn btn-primary">Submit</button>
+        </div>
+
+    </div>
+
+</div>
+
+
 
     <script src="ERS.js"></script>
 </body>

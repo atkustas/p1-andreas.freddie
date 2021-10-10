@@ -14,32 +14,32 @@
 
 
 <body>
-    <div class="container">
-        <div id="masterHeaders">
-            <div id="header-row" class="row col-sm-8">
+    <div id ="ManMainCon"class="container">
+        <div id="masterHeadersMan">
+            <div id="mNheader-row" class="row col-sm-8">
                 <h1 id=myHeader>Manager Reimbursement Portal</h1>
             </div>
 
-            <div id="headerAdd-row">
+            <div id="headerManAdd-row">
                 <h2 id=myHeader>Tickets Employee Reimbursement</h2>
             </div>
 
             <div class="manChoice">
-                <ul id="buttonList">
+                <ul id="manbuttonList">
                     <li>
-                        <button id="add" type="button" class="btn btn-light">Add Reimbursement Request</button>
+                        <button id="addMan" type="button" class="btn btn-light">Add Reimbursement Request</button>
                     </li>
                     <li>
-                        <button id="update" type="button" class="btn btn-light">Update Reimbursement Request</button>
+                        <button id="updateMan" type="button" class="btn btn-light">Update Reimbursement Request</button>
                     </li>
                     <li>
-                        <button id="view" type="button" class="btn btn-light">View My Reimbursement Requests</button>
+                        <button id="viewMan" type="button" class="btn btn-light">View My Reimbursement Requests</button>
                     </li>
                     <li>
-                        <button id="viewEmp" type="button" class="btn btn-light">View Employee Reimbursement Requests</button>
+                        <button id="viewEmpMan" type="button" class="btn btn-light">View Employee Reimbursement Requests</button>
                     </li>
                     <li>
-                        <button id="updateStat" type="button" class="btn btn-light">Change Employee Request Status</button>
+                        <button id="updateStatMan" type="button" class="btn btn-light">Change Employee Request Status</button>
                     </li>
                 </ul>
             </div>
@@ -49,7 +49,7 @@
 
     <br>
 
-    <div class="logout">
+    <div id="Manlogout" class="Manlogout">
         <ul>
             <li>
                 <button onclick="window.location.href='ERS.html'">Log Out</button>
@@ -60,9 +60,9 @@
     </div>
 
 
-    <div class="output">
+    <div id ="ManOutputs"class="Manoutput">
 
-        <div id="ticketList" class="outputList">
+        <div id="ManticketList" class="manoutputList">
             <!--load correct form or table of requests after button pushed-->
 
             <!--
@@ -149,16 +149,16 @@
 
             <br>
 
-            <button type="button" class="btn-primary" id="listBut">Done</button>
-            <div class="accordion" id="accordionExample">
+            <button type="button" class="btn-primary" id="manListButD">Done</button>
+            <div class="accordion" id="accordionMan1">
                 <div class="accordion-item">
-                    <h2 class="accordion-header" id="headingOne">
+                    <h2 class="accordion-header" id="headingOneMan">
                         <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                             data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
                             Accordion Item #1
                         </button>
                     </h2>
-                    <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne"
+                    <div id="manCollapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne"
                         data-bs-parent="#accordionExample">
                         <div class="accordion-body">
                             (userid#)- Henry (get lastname)'s ticket (id#) for hosting lunch, (get type), $55, submitted
@@ -167,13 +167,13 @@
                     </div>
                 </div>
                 <div class="accordion-item">
-                    <h2 class="accordion-header" id="headingTwo">
+                    <h2 class="accordion-header" id="manHeadingTwo">
                         <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                             data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
                             Update Placeholder?
                         </button>
                     </h2>
-                    <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
+                    <div id="manCollapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
                         data-bs-parent="#accordionExample">
                         <div class="accordion-body">
                             ticket info... to be updated
@@ -186,18 +186,18 @@
 
         </div>
 
-        <div id="ticketList2" class="outputList">
+        <div id="ManticketList2" class="manoutputList">
 
-            <button type="button" class="btn-primary" id="listBut2">Done</button>
+            <button type="button" class="btn-primary" id="manEmpListButD">Done</button>
             <div class="accordion" id="accordionExample2">
                 <div class="accordion-item">
-                    <h2 class="accordion-header" id="headingOne">
+                    <h2 class="accordion-header" id="manHeadingOne2">
                         <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                             data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
                             Accordion Item #1
                         </button>
                     </h2>
-                    <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne"
+                    <div id="manCollapseOne2" class="accordion-collapse collapse" aria-labelledby="headingOne"
                         data-bs-parent="#accordionExample">
                         <div class="accordion-body">
                             (userid#)- Henry (get lastname)'s ticket (id#) for hosting lunch, (get type), $55, submitted
@@ -206,13 +206,13 @@
                     </div>
                 </div>
                 <div class="accordion-item">
-                    <h2 class="accordion-header" id="headingTwo">
+                    <h2 class="accordion-header" id="manHeadingTwo2">
                         <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                             data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
                             Update Placeholder?
                         </button>
                     </h2>
-                    <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
+                    <div id="manCollapseTwo2" class="accordion-collapse collapse" aria-labelledby="headingTwo"
                         data-bs-parent="#accordionExample">
                         <div class="accordion-body">
                             ticket info... to be updated
@@ -230,7 +230,7 @@
 
         <br>
 
-        <div id="MasterForm">
+        <div id="ManMasterForm">
             <form>
 
                 <div>
@@ -239,37 +239,37 @@
                     <p>To sumbit a new Reimbursement ticket please sumbit the follow information: </p>
                 </div>
 
-                <div id="form1" class="form-group">
-                    <label for="FormControlInput1">Amount ($)</label><br>
-                    <input type="text" class="form-control" name="Amount" id="FormControlInput1" placeholder="($$)"><br>
+                <div id="manform1" class="form-group">
+                    <label for="FormControlInputAmt2">Amount ($)</label><br>
+                    <input type="text" class="form-control" name="Amount" id="FormControlInputAmt2" placeholder="($$)"><br>
                 </div>
 
 
-                <div id="form2" class="form-group">
-                    <label for="FormControlFile1">Recpiet File Input</label><br>
+                <div id="manform2" class="form-group">
+                    <label for="FormControlFile3">Recpiet File Input</label><br>
                     <p>
                         (This is not required)
                     </p>
-                    <input type="file" class="form-control-file" id="FormControlFile2"><br>
+                    <input type="file" class="form-control-file" id="FormControlFile4"><br>
                 </div>
 
                 <br>
-                <div id="form3" class="form-group">
-                    <label for="FormControlTextarea1">Desricbe your Reimbursement</label>
-                    <br><textarea class="form-control" id="FormControlTextarea1" rows="3"></textarea>
+                <div id="manform3" class="form-group">
+                    <label for="FormControlTextarea2">Desricbe your Reimbursement</label>
+                    <br><textarea class="form-control" id="FormControlTextarea2" rows="3"></textarea>
                     <br>
                 </div>
 
-                <div id="form4" class="form-group">
-                    <label for="FormControlInput2">Date(XX/XX/XXXX)</label><br>
-                    <input type="text" class="form-control" name="Date" id="FormControlInput2"
+                <div id="manform4" class="form-group">
+                    <label for="FormControlInputDate2">Date(XX/XX/XXXX)</label><br>
+                    <input type="text" class="form-control" name="Date" id="FormControlInputDate2"
                         placeholder="10/05/2021"><br>
 
                 </div>
 
-                <div id="form5" class="form-group">
-                    <label for="exampleFormControlSelect1">Example select</label>
-                    <select class="form-control" id="exampleFormControlSelect1">
+                <div id="manform5" class="form-group">
+                    <label for="exampleFormControlSelect2">Example select</label>
+                    <select class="form-control" id="exampleFormControlSelect2">
                         <option>Food</option>
                         <option>Travel</option>
                         <option>Training</option>
@@ -280,7 +280,7 @@
                     <br>
                 </div>
 
-                <button id="subForm" type="submit" class="btn btn-primary">Submit</button>
+                <button id="mansubForm" type="submit" class="btn btn-primary">Submit</button>
 
             </form>
 
@@ -291,17 +291,24 @@
 
 
 
-        <div id="updateApp" class="updateForm">
+        <div id="updateAppMan" class="updateForm">
             <!--load correct form or table of requests after button pushed-->
-            <p>Update PlaceHolder</p>
-            <button id="subUp" type="submit" class="btn btn-primary">Submit</button>
+            <div id="manformup1" class="form-group">
+                <label for="FormControlInputAmtUp">Amount ($)</label><br>
+                <input type="text" class="form-control" name="Amount" id="FormControlInputAmtUp" placeholder="($$)"><br>
+            </div>
+
+            <button id="subUpMan" type="submit" class="btn btn-primary">Submit</button>
         </div>
 
 
-        <div id="updateApp2" class="updateForm">
-            <!--load correct form or table of requests after button pushed-->
+        <div id="updateAppMan2" class="updateForm">
+            <div id="manformup2" class="form-group">
+                <label for="FormControlInputAmtUp2">Amount ($)</label><br>
+                <input type="text" class="form-control" name="Amount" id="FormControlInputAmtUp2" placeholder="($$)"><br>
+            </div>
             <p>Update PlaceHolder</p>
-            <button id="subUp2" type="submit" class="btn btn-primary">Submit</button>
+            <button id="subUpMan2" type="submit" class="btn btn-primary">Submit</button>
         </div>
 
     </div>
