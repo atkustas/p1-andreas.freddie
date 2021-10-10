@@ -15,7 +15,8 @@
     
     <div class="container" id="fullcontainer">
 
-        
+
+        <div class="container" id="logincontainer">
         <div id="homeheader-row" class="row col-sm-8">
             <h1 id=myHeader>Expense Reimbursement System</h1>
         </div>
@@ -43,15 +44,15 @@
             
 
         </div>
-
     </div>
+    
 
 
         <br>
         <br>
 
 
-   <div id="buttonTest"> 
+   <div id="buttonTest" style="visibility: hidden;"> 
 
     <div float = "left">
         <button id="view" type="button" class="btn btn-light">View My Reimbursement Requests</button>
@@ -81,13 +82,13 @@
           <div class="empChoice">
               <ul id="empbuttonList">
                   <li>
-                      <button id="addEmp" type="button" class="btn btn-light">Add Reimbursement Request</button>
+                      <button id="addEmp" type="button" class="btn btn-light" onclick="changeVisEmpForm()">Add Reimbursement Request</button>
                   </li>
                   <li>
-                      <button id="updateEmp" type="button" class="btn btn-light">Update Reimbursement Request</button>
+                      <button id="updateEmp" type="button" class="btn btn-light" onclick="changeVisUpdateEmp()">Update Reimbursement Request</button>
                   </li>
                   <li>
-                      <button id="viewEmp" type="button" class="btn btn-light">View My Reimbursement Requests</button>
+                      <button id="viewEmp" type="button" class="btn btn-light" onclick="changeVisEmpList()">View My Reimbursement Requests</button>
                   </li>
               </ul>
           </div>
@@ -158,7 +159,7 @@
           <br>
   
           <div id="EmpMasterForm">
-          <form>
+          <form id="empupdateApp" class="empupdateForm" action="#" method="post" onsubmit="changeHideUpdateEmp();return false"></form>>
   
   <div>
     <h3>Reimbursement Form</h3>
@@ -216,12 +217,12 @@
   <br>
   
   
-  
-          <div id="empupdateApp" class="empupdateForm">
-              <!--load correct form or table of requests after button pushed-->
+        <div id="updateticketForm">
+          <form id="empupdateApp" class="empupdateForm" action="#" method="post" onsubmit="changeHideUpdateEmp();return false">
               <p>Update PlaceHolder</p>
               <button id="empsubUp" type="submit" class="btn btn-primary">Submit</button>
-          </div>
+          </form>
+            </div>
   
       </div>
     </div>
@@ -444,7 +445,7 @@
         <br>
 
         <div id="ManMasterForm">
-            <form>
+            <form action="#" method="post" onsubmit="changeHideFormManTick();return false">
 
                 <div>
                     <h3>Reimbursement Form</h3>
@@ -463,13 +464,13 @@
                     <p>
                         (This is not required)
                     </p>
-                    <input type="file" class="form-control-file" id="FormControlFile4"><br>
+                    <input type="file" class="form-control-file" name="file" id="FormControlFile4"><br>
                 </div>
 
                 <br>
                 <div id="manform3" class="form-group">
                     <label for="FormControlTextarea2">Desricbe your Reimbursement</label>
-                    <br><textarea class="form-control" id="FormControlTextarea2" rows="3"></textarea>
+                    <br><textarea class="form-control" name="ticketDes."id="FormControlTextarea2" rows="3"></textarea>
                     <br>
                 </div>
 
@@ -482,7 +483,7 @@
 
                 <div id="manform5" class="form-group">
                     <label for="exampleFormControlSelect2">Example select</label>
-                    <select class="form-control" id="exampleFormControlSelect2">
+                    <select class="form-control" name="typeSelecet" id="exampleFormControlSelect2">
                         <option>Food</option>
                         <option>Travel</option>
                         <option>Training</option>
@@ -506,23 +507,33 @@
 
         <div id="updateAppMan" class="updateForm">
             <!--load correct form or table of requests after button pushed-->
+            <form action="#" method="post" onsubmit="changeHideUpdateManSelf();return false">
             <p>Update PlaceHolder</p>
             <button id="subUpMan" type="submit" class="btn btn-primary">Submit</button>
+        </form>
         </div>
 
 
         <div id="updateAppMan2" class="updateForm">
             <!--load correct form or table of requests after button pushed-->
+            <form action="#" method="post" onsubmit="changeHideUpdateManEmp();return false">
             <p>Update PlaceHolder</p>
             <button id="subUpMan2" type="submit" class="btn btn-primary">Submit</button>
+        </form>
         </div>
 
     </div>
 
 </div>
+</div>
 
 
-
-    <script src="ERS.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js"></script>
+<!-- JavaScript Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous">
+    </script>
+<script src="ERS.js"></script>
 </body>
 </html>

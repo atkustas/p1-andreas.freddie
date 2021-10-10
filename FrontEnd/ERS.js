@@ -37,7 +37,8 @@ async function loginFunc() {
 
     if (response.status === 200) {
 
-        document.getElementById("login-row").innerText = "Welcome!"
+        //document.getElementById("login-row").innerText = "Welcome!"
+        console.log("Welcome!")
 
         let response2 = await fetch(url + "redirect", {
 
@@ -209,34 +210,45 @@ async function approveDeny(){
 
 //Manger functions
 
-//normal emp forms and bhuttons
+//normal show add,view, or update buttons for just the manger adding tickets
 document.getElementById("addMan").addEventListener("click", changeVisFormManTick);
-document.getElementById("viewMan").addEventListener("click", changeVisListManSelf);
 document.getElementById("updateMan").addEventListener("click", changeVisUpdateManSelf);
+//look at manger sumbited tickets
+document.getElementById("viewMan").addEventListener("click", changeVisListManSelf);
 
-document.getElementById("mansubForm").addEventListener("click", changeVisFormManTick);
-document.getElementById("subUpMan").addEventListener("click", changeVisUpdateManSelf);
+//normal hide buttons for manger, link to the buttons above^^
+document.getElementById("mansubForm").addEventListener("click", changeHideFormManTick);
+document.getElementById("subUpMan").addEventListener("click", changeHideUpdateManSelf);
+document.getElementById("manListButD").addEventListener("click", changeHideListManEmp);
 
 //manger special forms/list and buttons
-document.getElementById("subUpMan2").addEventListener("click", changeVisUpdateManEmp);
-document.getElementById("viewEmpMan").addEventListener("click", changeVisListManEmp);
+//displays manger buttons to change employee tickets
 document.getElementById("updateStatMan").addEventListener("click", changeVisUpdateManEmp);
+document.getElementById("viewEmpMan").addEventListener("click", changeVisListManEmp);
 
-document.getElementById("manListButD").addEventListener("click", changeVisListManSelf);
-document.getElementById("manEmpListButD").addEventListener("click", changeVisListManEmp);
+////hide buttons for emp forms and list
+document.getElementById("subUpMan2").addEventListener("click", changeHideUpdateManEmp);
+document.getElementById("manEmpListButD").addEventListener("click", changeHideListManSelf);
 
 //document.getElementById("subForm2").addEventListener("click", changeVisForm3);
 
 function changeVisManPage() {
 
     document.getElementById("ManMainCon").style.visibility = "visible";
-
-}
+    document.getElementById("homeheader-row").style.visibility = "hidden";
+    document.getElementById("logincontainer").style.visibility = "hidden";
+    }
 
 
 function changeVisFormManTick() {
 
-    document.getElementById("ManMasterForm").style.visibility =  !document.getElementById("ManMasterForm").style.visibility;
+    document.getElementById("ManMasterForm").style.visibility = "visible";
+
+}
+
+function changeHideFormManTick() {
+
+    document.getElementById("ManMasterForm").style.visibility = "hidden";
 
 }
 
@@ -244,7 +256,15 @@ function changeVisFormManTick() {
 function changeVisListManEmp() {
 
 
-    document.getElementById("ManticketList").style.visibility = !document.getElementById("ManticketList").style.visibility;
+    document.getElementById("ManticketList").style.visibility = "visible";
+
+
+}
+
+function changeHideListManEmp() {
+
+
+    document.getElementById("ManticketList").style.visibility = "hidden";
 
 
 }
@@ -252,23 +272,42 @@ function changeVisListManEmp() {
 function changeVisListManSelf() {
 
 
-    document.getElementById("ManticketList2").style.visibility =  !document.getElementById("ManticketList2").style.visibility;
+    document.getElementById("ManticketList2").style.visibility = "visible";
+
+
+}
+
+function changeHideListManSelf() {
+
+
+    document.getElementById("ManticketList2").style.visibility = "hidden";
 
 
 }
 
 function changeVisUpdateManSelf() {
 
-    document.getElementById("updateAppMan").style.visibility = !document.getElementById("updateAppMan").style.visibility;
+    document.getElementById("updateAppMan").style.visibility = "visible";
+
+}
+
+function changeHideUpdateManSelf() {
+
+    document.getElementById("updateAppMan").style.visibility = "hidden";
 
 }
 
 function changeVisUpdateManEmp() {
 
-    document.getElementById("updateAppMan2").style.visibility = !document.getElementById("updateAppMan2").style.visibility;
+    document.getElementById("updateAppMan2").style.visibility = "visible";
 
 }
 
+function changeHideUpdateManEmp() {
+
+    document.getElementById("updateAppMan2").style.visibility = "hidden";
+
+}
 
 //Employee Functions
 //sprite toggles
@@ -276,46 +315,71 @@ var TicketForm = new Boolean(false);
 var ListEmp = new Boolean(false);
 var UpForm = new Boolean(false);
 
+//show/hide add ticket forms
 document.getElementById("addEmp").addEventListener("click", changeVisEmpForm);
-document.getElementById("empsubForm").addEventListener("click", changeVisEmpForm);
+document.getElementById("empsubForm").addEventListener("click", changeHideEmpForm);
 
+//show/hide list forms
 document.getElementById("viewEmp").addEventListener("click", changeVisEmpList);
-document.getElementById("listButEmpD").addEventListener("click", changeVisEmpList);
+document.getElementById("listButEmpD").addEventListener("click", changeHideEmpList);
 
+//show/hide update forms
 document.getElementById("updateEmp").addEventListener("click", changeVisUpdateEmp);
-document.getElementById("empsubUp").addEventListener("click", changeVisUpdateEmp);
+document.getElementById("empsubUp").addEventListener("click", changeHideUpdateEmp);
 
 
 
 function changeVisEmpPage(){
 
     document.getElementById("employeeMainCon").style.visibility= "visible";
-
+    document.getElementById("homeheader-row").style.visibility = "hidden";
+    document.getElementById("myHeader").style.visibility = "hidden";
+    document.getElementById("logincontainer").style.visibility = "hidden";
 }
 
 function changeVisEmpForm(){
 
-    this.TicketForm = !this.TicketForm;
-    console.log(TicketForm);
-
-    document.getElementById("EmpMasterForm").style.visibility= !document.getElementById("EmpMasterForm").style.visibility;
+   
+    document.getElementById("EmpMasterForm").style.visibility = "visible";
+   
 
 }
 
+function changeHideEmpForm(){
+
+    
+
+    document.getElementById("EmpMasterForm").style.visibility= "hidden";
+
+}
+
+
 function changeVisEmpList(){
 
-    this.ListEmp = !this.ListEmp;
     
-    document.getElementById("ticketListEmp").style.visibility= !document.getElementById("ticketListEmp").style.visibility;
+    document.getElementById("ticketListEmp").style.visibility= "visible";
+    
+
+}
+
+function changeHideEmpList(){
+
+   
+    document.getElementById("ticketListEmp").style.visibility= "hidden";
     
 
 }
 
 function changeVisUpdateEmp(){
     
-    this.UpForm = !this.UpForm;
-
-    document.getElementById("empupdateApp").style.visibility= !document.getElementById("empupdateApp").style.visibility;
+    
+    document.getElementById("updateticketForm").style.visibility= "visible";
 
 }
 
+function changeHideUpdateEmp(){
+    
+   
+    document.getElementById("updateticketForm").style.visibility= "hidden";
+
+}
