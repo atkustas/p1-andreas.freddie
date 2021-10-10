@@ -236,7 +236,7 @@ public class ReimbController {
 		Reimbursement ticket = ctx.bodyAsClass(Reimbursement.class);
 		
 		//push ticket through Service to DAO
-		rServ.updateTicketStat(ticket);
+		rServ.updateTicketStatAPP(ticket);
 		
 		//report success
 		ctx.status(200);

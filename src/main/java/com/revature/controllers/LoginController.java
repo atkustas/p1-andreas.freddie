@@ -1,7 +1,6 @@
 package com.revature.controllers;
 
 import java.util.List;
-
 import com.google.gson.Gson;
 import com.revature.models.LoginDTO;
 import com.revature.models.User;
@@ -36,7 +35,6 @@ public class LoginController {
 			ctx.status(200);
 
 			ctx.result("Login successful. JWT is: " + jwt);
-			
 			
 
 		} else {
