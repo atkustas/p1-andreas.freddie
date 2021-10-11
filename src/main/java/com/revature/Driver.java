@@ -114,11 +114,11 @@ public class Driver {
 		ReType other = new ReType("Other");
 
 		//creating reimbursement tickets
-		Reimbursement ticket1 = new Reimbursement(15, "noon", "next-day", "Fred's ticket on food", null, emp1, mang1,
+		Reimbursement ticket1 = new Reimbursement("15", "noon", "next-day", "Fred's ticket on food", null, emp1, mang1,
 				approved, other);
-		Reimbursement ticket2 = new Reimbursement(35, "11:15", "n/a", "Andres's ticket on food", null, emp2, null, denied,
+		Reimbursement ticket2 = new Reimbursement("35", "11:15", "n/a", "Andres's ticket on food", null, emp2, null, denied,
 				other);
-		Reimbursement ticket3 = new Reimbursement(99.99, "10:30", "n/a", "Gas", null, emp2, null, pending,
+		Reimbursement ticket3 = new Reimbursement("99.99", "10:30", "n/a", "Gas", null, emp2, null, pending,
 				travel);
 
 		//add tickets to database

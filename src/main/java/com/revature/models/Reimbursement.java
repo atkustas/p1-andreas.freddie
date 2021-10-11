@@ -24,7 +24,7 @@ public class Reimbursement {
 	@Column(name = "re_id")
 	private int re_id;
 
-	private double re_amount;
+	private String re_amount;
 	private String re_submitted;
 	private String re_resolved;
 	private String re_desc;
@@ -53,7 +53,7 @@ public class Reimbursement {
 	}
 
 	// all-args
-	public Reimbursement(int re_id, double re_amount, String re_submitted, String re_resolved, String re_desc,
+	public Reimbursement(int re_id, String re_amount, String re_submitted, String re_resolved, String re_desc,
 			byte[] re_receipt, User re_author, User re_resolver, ReStatus re_status_id, ReType re_type_id) {
 		super();
 		this.re_id = re_id;
@@ -69,7 +69,7 @@ public class Reimbursement {
 	}
 
 	// no id
-	public Reimbursement(double re_amount, String re_submitted, String re_resolved, String re_desc, byte[] re_receipt,
+	public Reimbursement(String re_amount, String re_submitted, String re_resolved, String re_desc, byte[] re_receipt,
 			User re_author, User re_resolver, ReStatus re_status_id, ReType re_type_id) {
 		super();
 		this.re_amount = re_amount;
@@ -100,11 +100,11 @@ public class Reimbursement {
 		this.re_id = re_id;
 	}
 
-	public double getRe_amount() {
+	public String getRe_amount() {
 		return re_amount;
 	}
 
-	public void setRe_amount(int re_amount) {
+	public void setRe_amount(String re_amount) {
 		this.re_amount = re_amount;
 	}
 
@@ -172,13 +172,106 @@ public class Reimbursement {
 		this.re_type_id = re_type_id;
 	}
 
+//	@Override
+//	public int hashCode() {
+//		final int prime = 31;
+//		int result = 1;
+//		long temp;
+//		temp = Double.doubleToLongBits(re_amount);
+//		result = prime * result + (int) (temp ^ (temp >>> 32));
+//		result = prime * result + ((re_author == null) ? 0 : re_author.hashCode());
+//		result = prime * result + ((re_desc == null) ? 0 : re_desc.hashCode());
+//		result = prime * result + re_id;
+//		result = prime * result + Arrays.hashCode(re_receipt);
+//		result = prime * result + ((re_resolved == null) ? 0 : re_resolved.hashCode());
+//		result = prime * result + ((re_resolver == null) ? 0 : re_resolver.hashCode());
+//		result = prime * result + ((re_status_id == null) ? 0 : re_status_id.hashCode());
+//		result = prime * result + ((re_submitted == null) ? 0 : re_submitted.hashCode());
+//		result = prime * result + ((re_type_id == null) ? 0 : re_type_id.hashCode());
+//		return result;
+//	}
+//
+//	@Override
+//	public boolean equals(Object obj) {
+//		if (this == obj)
+//			return true;
+//		if (obj == null)
+//			return false;
+//		if (getClass() != obj.getClass())
+//			return false;
+//		Reimbursement other = (Reimbursement) obj;
+//		if (Double.doubleToLongBits(re_amount) != Double.doubleToLongBits(other.re_amount))
+//			return false;
+//		if (re_author == null) {
+//			if (other.re_author != null)
+//				return false;
+//		} else if (!re_author.equals(other.re_author))
+//			return false;
+//		if (re_desc == null) {
+//			if (other.re_desc != null)
+//				return false;
+//		} else if (!re_desc.equals(other.re_desc))
+//			return false;
+//		if (re_id != other.re_id)
+//			return false;
+//		if (!Arrays.equals(re_receipt, other.re_receipt))
+//			return false;
+//		if (re_resolved == null) {
+//			if (other.re_resolved != null)
+//				return false;
+//		} else if (!re_resolved.equals(other.re_resolved))
+//			return false;
+//		if (re_resolver == null) {
+//			if (other.re_resolver != null)
+//				return false;
+//		} else if (!re_resolver.equals(other.re_resolver))
+//			return false;
+//		if (re_status_id == null) {
+//			if (other.re_status_id != null)
+//				return false;
+//		} else if (!re_status_id.equals(other.re_status_id))
+//			return false;
+//		if (re_submitted == null) {
+//			if (other.re_submitted != null)
+//				return false;
+//		} else if (!re_submitted.equals(other.re_submitted))
+//			return false;
+//		if (re_type_id == null) {
+//			if (other.re_type_id != null)
+//				return false;
+//		} else if (!re_type_id.equals(other.re_type_id))
+//			return false;
+//		return true;
+//	}
+
+	public void setFields(int good, int pending, String resloveDate, User re_resolver, ReStatus re_status_id,
+			ReType re_type_id) {
+		// good = 1;
+		// pending = 1;
+
+		int temp = re_resolver.getRole_id();
+
+		System.out.println("Status: " + getRe_status_id() + ", Type: " + getRe_type_id());
+
+		re_status_id.setRe_status_id(good);
+		re_type_id.setRe_type_id(pending);
+		setRe_type_id(re_type_id);
+		setRe_status_id(re_status_id);
+
+		setRe_resolved(resloveDate);
+		setRe_resolver(re_resolver);
+
+		System.out.println("Ticket#:" + getRe_id() + "was updated on [" + getRe_resolved() + "]"
+				+ " with the follow info: " + "Status: " + getRe_status_id() + ", Type: " + getRe_type_id()
+				+ ", resolved by: " + getRe_resolver());
+
+	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		long temp;
-		temp = Double.doubleToLongBits(re_amount);
-		result = prime * result + (int) (temp ^ (temp >>> 32));
+		result = prime * result + ((re_amount == null) ? 0 : re_amount.hashCode());
 		result = prime * result + ((re_author == null) ? 0 : re_author.hashCode());
 		result = prime * result + ((re_desc == null) ? 0 : re_desc.hashCode());
 		result = prime * result + re_id;
@@ -200,7 +293,10 @@ public class Reimbursement {
 		if (getClass() != obj.getClass())
 			return false;
 		Reimbursement other = (Reimbursement) obj;
-		if (Double.doubleToLongBits(re_amount) != Double.doubleToLongBits(other.re_amount))
+		if (re_amount == null) {
+			if (other.re_amount != null)
+				return false;
+		} else if (!re_amount.equals(other.re_amount))
 			return false;
 		if (re_author == null) {
 			if (other.re_author != null)
@@ -243,28 +339,7 @@ public class Reimbursement {
 			return false;
 		return true;
 	}
-
-	public void setFields(int good, int pending, String resloveDate, User re_resolver, ReStatus re_status_id,
-			ReType re_type_id) {
-		// good = 1;
-		// pending = 1;
-
-		int temp = re_resolver.getRole_id();
-
-		System.out.println("Status: " + getRe_status_id() + ", Type: " + getRe_type_id());
-
-		re_status_id.setRe_status_id(good);
-		re_type_id.setRe_type_id(pending);
-		setRe_type_id(re_type_id);
-		setRe_status_id(re_status_id);
-
-		setRe_resolved(resloveDate);
-		setRe_resolver(re_resolver);
-
-		System.out.println("Ticket#:" + getRe_id() + "was updated on [" + getRe_resolved() + "]"
-				+ " with the follow info: " + "Status: " + getRe_status_id() + ", Type: " + getRe_type_id()
-				+ ", resolved by: " + getRe_resolver());
-
-	}
+	
+	
 
 }

@@ -20,13 +20,13 @@
         <div id="homeheader-row" class="row col-sm-12">
             <h1 id=myHeader>Expense Reimbursement System</h1>
         </div>
-
-
+        <br>
+        <br>
         <!-- Login inputs here -->
 
         <div id="login-row" class="row col-sm-12">
-            <br>
-            <br>
+
+ 
             <div id="header"> 
                 <h3 class="col-lg-12">Login</h3>
             </div>
@@ -50,9 +50,9 @@
     
 
 
+    <!--testing buttons-->
 
-
-   <div id="buttonTest" style="visibility: hidden;"> 
+    <!-- <div id="buttonTest" style="visibility: hidden;"> 
 
     <div float = "left">
         <button id="view" type="button" class="btn btn-light">View My Reimbursement Requests</button>
@@ -64,7 +64,7 @@
         <button id="viewEmp" type="button" class="btn btn-light">View Employee Reimbursement Requests</button>
     </div>
 
-</div>
+    </div> -->
 
 
     <div id="employeeMainCon" class="container">
@@ -81,9 +81,11 @@
                   <li>
                       <button id="addEmp" type="button" class="btn btn-light" onclick="changeVisEmpForm()">Add Reimbursement Request</button>
                   </li>
-                  <li>
+                  <br>
+                  <!-- <li>
                       <button id="updateEmp" type="button" class="btn btn-light" onclick="changeVisUpdateEmp()">Update Reimbursement Request</button>
                   </li>
+                  <br> -->
                   <li>
                       <button id="viewEmp" type="button" class="btn btn-light" onclick="changeVisEmpList()">View My Reimbursement Requests</button>
                   </li>
@@ -94,75 +96,60 @@
       <br>
   
       <div id="Emplogout"class="Emplogout">
-      <ul>
+        <ul>
           <li>
               <button onclick="window.location.href='ERS.html'">Log Out</button>
           </li>
-      </ul>
-    </div>
+        </ul>
+        </div>
   
   
-  
-      <br>
-      <br>
-  
-      <div class="Empoutput">
+      <div id= "ticketOutput" class="Empoutput">
   
           <div id="ticketListEmp" class="outputListEmp">
              
               <br>
   
               <div id="headerAdd-row">
-                <h2 id=empSddHeader>Tickets Employee Reimbursement</h2>
+                <h2 id=outputHeader>Your Reimbursement Requests</h2>
             </div>
 
             <button type="button" class="btn-primary" id="manListButD">Done</button>
-            <select class="form-select" aria-label="Default select example">
-                <option selected>Open this select menu</option>
-                <option value="1">One</option>
-                <option value="2">Two</option>
-                <option value="3">Three</option>
-              </select>
-                  <!--I want a table that will display all my Avenger information when it comes back from the server-->
-    <div id="table-row" class="row">
-        <!--Then we need rows inside the container to organize the data-->
-        <table id="empTable" class="table table-hover table-bordered table-dark">
-            <thead id="empHead">
-                <tr>
-                    <th>ID</th>
-                    <th>User-ID</th>
-                    <th>Amount</th>
-                    <th>Type</th>
-                    <th>Submitted</th>
-                    <th>Status</th>
-                    <th>Resolver-ID</th>
-                    <th>Resolved</th>
-                    <th>Approve/Deny</th>
-                </tr>
-            </thead>
-            <tbody id="empBody">
-                <!--We'll leave this blank: it will be filled by our JS when data comes in-->
-            </tbody>
-        </table>
-    </div>
 
-  
-          </div>
-  
-  
-  
-  
-  
-  
-          <br>
+        <!--Table of user ticket info-->
+        <div id="table-row" class="row">
+        <!--Then we need rows inside the container to organize the data-->
+            <table id="empTable" class="table table-hover table-bordered table-dark">
+                <thead id="empHead">
+                    <tr>
+                        <th>Ticket ID</th>
+                        <th>User ID</th>
+                        <th>Amount</th>
+                        <th>Submitted</th>
+                        <th>Type</th>
+                        <th>Status</th>
+                        <th>Resolver ID</th>
+                        <th>Resolved Date</th>
+                    </tr>
+                </thead>
+                <tbody id="empBody">
+                <!--We'll leave this blank: it will be filled by our JS when data comes in-->
+                </tbody>
+            </table>
+        </div>
+
+        <br>
+        <br>
+        </div>
   
           <div id="EmpMasterForm">
-          <form id="empupdateApp" class="empupdateForm" action="#" method="post" onsubmit="changeHideUpdateEmp();return false"></form>>
+          <form id="empupdateApp" class="empupdateForm" action="#" method="post" onsubmit="newTicket();return false"></form>>
   
-  <div>
+        <div>
+
     <h3>Reimbursement Form</h3>
   <br>
-  <p>To sumbit a new Reimbursement ticket please sumbit the follow information: </p>
+  <p>Enter the details of your Reimbursement Request using the form below. </p>
   </div>
   
               <div id="empform1" class="form-group">
@@ -172,53 +159,41 @@
   
   
               <div id="empform2" class="form-group">
-                  <label for="FormControlFile1">Recpiet File Input</label><br>
+                  <label for="FormControlFile1">Upload Receipt</label><br>
                   <p>
                     (This is not required)
                   </p>
                   <input type="file" class="form-control-file" id="EmpFormControlFile2"><br>
               </div>
   
-  <br>
               <div id="empform3" class="form-group">
-                  <label for="FormControlTextarea1">Desricbe your Reimbursement</label>
+                  <label for="FormControlTextarea1">Enter a short description of your request.</label>
                   <br><textarea class="form-control" id="EmpFormControlTextarea1" rows="3"></textarea>
                   <br>
               </div>
   
-              <div id="empform4" class="form-group">
-                <label for="EmpFormControlInputDate">Date(XX/XX/XXXX)</label><br>
-                  <input type="text" class="form-control" name="Date" id="EmpFormControlInputDate" placeholder="10/05/2021"><br>
-             
-            </div>
-  
             <div id="empform5" class="form-group">
-              <label for="exampleFormControlSelect1">Example select</label>
+              <label for="exampleFormControlSelect1">Reimbursement Type</label>
               <select class="form-control" id="exampleFormControlSelect1">
-                <option>Food</option>
+                <option>Business</option>
                 <option>Travel</option>
-                <option>Training</option>
-                <option>Supplies</option>
                 <option>Medical</option>
-                <option>Misc</option>
+                <option>Other</option>
               </select>
               <br>
           </div>
   
-              <button id="empsubForm" type="submit" class="btn btn-primary">Submit</button>
+              <button id="empsubForm" class="btn btn-primary">Submit</button>
   
           </form>
   
         </div>
   
-  
-  <br>
-  
-  
+    
         <div id="updateticketForm">
           <form id="empupdateApp" class="empupdateForm" action="#" method="post" onsubmit="changeHideUpdateEmp();return false">
               <p>Update PlaceHolder</p>
-              <button id="empsubUp" type="submit" class="btn btn-primary">Submit</button>
+              <button id="empsubUp" type="submit" class="btn btn-primary" onclick="newTicket()">Submit</button>
           </form>
             </div>
   
@@ -228,7 +203,7 @@
 
     <div id ="ManMainCon"class="container">
         <div id="masterHeadersMan">
-            <div id="mNheader-row" class="row col-sm-8">
+            <div id="mNheader-row">
                 <h1 id=myHeader>Manager Reimbursement Portal</h1>
             </div>
            
@@ -236,215 +211,38 @@
             <div class="manChoice">
                 <ul id="manbuttonList">
                     <li>
-                        <button id="addMan" type="button" class="btn btn-light">Add Reimbursement Request</button>
-                    </li>
-                    <li>
-                        <button id="updateMan" type="button" class="btn btn-light">Update Reimbursement Request</button>
-                    </li>
-                    <li>
-                        <button id="viewMan" type="button" class="btn btn-light">View My Reimbursement Requests</button>
-                    </li>
-                    <li>
                         <button id="viewEmpMan" type="button" class="btn btn-light">View Employee Reimbursement Requests</button>
                     </li>
+                    <br>
                     <li>
                         <button id="updateStatMan" type="button" class="btn btn-light">Change Employee Request Status</button>
                     </li>
                 </ul>
             </div>
+
+            <div id="Manlogout" class="Manlogout">
+                <ul>
+                    <li>
+                        <button onclick="window.location.href='ERS.html'">Log Out</button>
+                    </li>
+                </ul>        
+            </div>
+
         </div>
-
-   
-
-    <br>
-
-    <div id="Manlogout" class="Manlogout">
-        <ul>
-            <li>
-                <button onclick="window.location.href='ERS.html'">Log Out</button>
-            </li>
-        </ul>
-
-
-    </div>
 
 
     <div id ="ManOutputs"class="Manoutput">
 
         <div id="ManticketList" class="manoutputList">
-            <!--load correct form or table of requests after button pushed-->
-
-            <!--
-            <div class="list-group">
-                <button type="button" class="list-group-item list-group-item-action active">
-                    Cras justo odio
-                </button>
-                <button type="button" class="list-group-item list-group-item-action">Dapibus ac facilisis in</button>
-                <button type="button" class="list-group-item list-group-item-action">Morbi leo risus</button>
-                <button type="button" class="list-group-item list-group-item-action">Porta ac consectetur ac</button>
-                <button type="button" class="list-group-item list-group-item-action" disabled>Vestibulum at eros</button>
-            </div>
-
-            -->
-
-            <!--
-                  <div class="row">
-  <div class="col-4">
-    <div class="list-group" id="list-tab" role="tablist">
-      <a class="list-group-item list-group-item-action active" id="list-home-list" data-toggle="list" href="#list-home" role="tab" aria-controls="home">Home</a>
-      <a class="list-group-item list-group-item-action" id="list-profile-list" data-toggle="list" href="#list-profile" role="tab" aria-controls="profile">Profile</a>
-      <a class="list-group-item list-group-item-action" id="list-messages-list" data-toggle="list" href="#list-messages" role="tab" aria-controls="messages">Messages</a>
-      <a class="list-group-item list-group-item-action" id="list-settings-list" data-toggle="list" href="#list-settings" role="tab" aria-controls="settings">Settings</a>
-    </div>
-  </div>
-  <div class="col-8">
-    <div class="tab-content" id="nav-tabContent">
-      <div class="tab-pane fade show active" id="list-home" role="tabpanel" aria-labelledby="list-home-list">...</div>
-      <div class="tab-pane fade" id="list-profile" role="tabpanel" aria-labelledby="list-profile-list">...</div>
-      <div class="tab-pane fade" id="list-messages" role="tabpanel" aria-labelledby="list-messages-list">...</div>
-      <div class="tab-pane fade" id="list-settings" role="tabpanel" aria-labelledby="list-settings-list">...</div>
-    </div>
-  </div>
-</div>
--->
-
-            <!--
-    <div id="accordion">
-  <div class="card">
-    <div class="card-header" id="headingOne">
-      <h5 class="mb-0">
-        <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-          Collapsible Group Item #1
-        </button>
-      </h5>
-    </div>
-
-    <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
-      <div class="card-body">
-        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-      </div>
-    </div>
-  </div>
-  <div class="card">
-    <div class="card-header" id="headingTwo">
-      <h5 class="mb-0">
-        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-          Collapsible Group Item #2
-        </button>
-      </h5>
-    </div>
-    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
-      <div class="card-body">
-        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-      </div>
-    </div>
-  </div>
-  <div class="card">
-    <div class="card-header" id="headingThree">
-      <h5 class="mb-0">
-        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-          Collapsible Group Item #3
-        </button>
-      </h5>
-    </div>
-    <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
-      <div class="card-body">
-        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-      </div>
-    </div>
-  </div>
-</div>
--->
-
-            <br>
-
             <div id="headerManAdd-row">
-                <h2 id=myHeader>Tickets Manager's Reimbursement</h2>
+                <h2 id=outputHeader>Employee Reimbursement Requests</h2>
             </div>
-
-    
+            <br>
+            <br>
             <button type="button" class="btn-primary" id="manListButD" onclick="changeHideListManEmp()">Done</button>
-            <select class="form-select" aria-label="Default select example">
-                <option selected>Open this select menu</option>
-                <option value="1">One</option>
-                <option value="2">Two</option>
-                <option value="3">Three</option>
-              </select>
-            <!-- <div class="accordion" id="accordionMan1">
-                <div class="accordion-item">
-                    <h2 class="accordion-header" id="headingOneMan">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                            data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
-                            Accordion Item #1
-                        </button>
-                    </h2>
-                    <div id="manCollapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne"
-                        data-bs-parent="#accordionExample">
-                        <div class="accordion-body">
-                            (userid#)- Henry (get lastname)'s ticket (id#) for hosting lunch, (get type), $55, submitted
-                            12/26/2020, reslove:N/A, ResloverID#:N/A
-                        </div>
-                    </div>
-                </div>
-                <div class="accordion-item">
-                    <h2 class="accordion-header" id="manHeadingTwo">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                            data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                            Update Placeholder?
-                        </button>
-                    </h2>
-                    <div id="manCollapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
-                        data-bs-parent="#accordionExample">
-                        <div class="accordion-body">
-                            ticket info... to be updated
-                        </div>
-                    </div>
-                </div>
-
-            </div> -->
-    <!--I want a table that will display all my Avenger information when it comes back from the server-->
-    <div id="table-row" class="row">
-        
-
-        <!--Then we need rows inside the container to organize the data-->
-        
-        <table id="avengerTable" class="table table-hover table-bordered table-dark">
-            <thead id="avengerHead">
-                <tr>
-                    <th>ID</th>
-                    <th>User-ID</th>
-                    <th>Amount</th>
-                    <th>Type</th>
-                    <th>Submitted</th>
-                    <th>Status</th>
-                    <th>Resolver-ID</th>
-                    <th>Resolved</th>
-                    <th>Approve/Deny</th>
-
-                </tr>
-            </thead>
-            <tbody id="avengerBody">
-                <!--We'll leave this blank: it will be filled by our JS when data comes in-->
-            </tbody>
-        </table>
-    </div>
-
-
-        </div>
-
-        <div id="ManticketList2" class="outputList">
-
-            <div id="headerManEmpAdd-row">
-                <h2 id=myHeader>Tickets Employee Reimbursement</h2>
-            </div>
-
-            <button type="button" class="btn-primary" id="manEmpListButD">Done</button>
-            <select class="form-select" aria-label="Default select example">
-                <option selected>Open this select menu</option>
-                <option value="1">One</option>
-                <option value="2">Two</option>
-                <option value="3">Three</option>
-              </select>
+            <!--Table of user ticket info-->
+        <div id="table-row" class="row">
+            <!--Then we need rows inside the container to organize the data-->
             <table id="manEmpTable" class="table table-hover table-bordered table-dark">
                 <thead id="manEmpHead">
                     <tr>
@@ -456,15 +254,19 @@
                         <th>Status</th>
                         <th>Resolver-ID</th>
                         <th>Resolved</th>
-                        <th>Approve/Deny</th>
-    
+                        <th>View Ticket</th>
                     </tr>
                 </thead>
                 <tbody id="manEmpBody">
                     <!--We'll leave this blank: it will be filled by our JS when data comes in-->
                 </tbody>
             </table>
+            </div>
+
+
+
         </div>
+
         </div>
 
 

@@ -1,12 +1,13 @@
 const url = "http://localhost:8090/"
 
 var userOb;
+var allTickets = [];
 
 document.getElementById("loginButton").addEventListener("click", loginFunc);
 //document.getElementById("view").addEventListener("click", changeVisList1);
-document.getElementById("view").addEventListener("click", userTicketsEmp);
-document.getElementById("add").addEventListener("click", newTicket);
-document.getElementById("viewEmp").addEventListener("click", viewTicketsMang);
+document.getElementById("viewEmp").addEventListener("click", userTicketsEmp);
+document.getElementById("empsubForm").addEventListener("click", newTicket);
+document.getElementById("viewEmpMan").addEventListener("click", viewTicketsMang);
 
 
 //login functionality
@@ -68,7 +69,6 @@ async function loginFunc() {
             }
        }
 
-
     } else {
         document.getElementById("login-row").innerText = "Login failed! Check credentials and try again."
     }
@@ -99,6 +99,56 @@ async function loginFunc() {
 
         console.log(JSON.stringify(data));
 
+        //populate table
+        for(ticket of data){
+
+            let row = document.createElement("tr"); //create table row
+            let cell = document.createElement("td"); //create cell for the field
+            cell.innerHTML = ticket.re_id;
+            row.appendChild(cell);
+
+            let cell2 = document.createElement("td"); //create cell for the field
+            cell2.innerHTML = ticket.re_author.id;
+            row.appendChild(cell2);
+
+            let cell3 = document.createElement("td"); //create cell for the field
+            cell3.innerHTML = ticket.re_amount;
+            row.appendChild(cell3);
+
+            let cell4 = document.createElement("td"); //create cell for the field
+            cell4.innerHTML = ticket.re_submitted;
+            row.appendChild(cell4);
+
+            let cell5 = document.createElement("td"); //create cell for the field
+            cell5.innerHTML = ticket.re_type_id.re_type;
+            row.appendChild(cell5);
+
+            let cell6 = document.createElement("td"); //create cell for the field
+            cell6.innerHTML = ticket.re_status_id.re_status;
+            row.appendChild(cell6);
+
+            let cell7 = document.createElement("td"); //create cell for the field
+            if(typeof ticket.re_resolver !== 'undefined'){
+                cell7.innerHTML = ticket.re_resolver.id;
+            }else{
+                cell7.innerHTML = "N/A";
+                
+            }
+            
+            row.appendChild(cell7);
+
+            let cell8 = document.createElement("td"); //create cell for the field
+            if(typeof ticket.re_resolver !== 'undefined'){
+                cell8.innerHTML = ticket.re_resolved;
+            }else{
+                cell8.innerHTML = "TBD";
+            }
+            row.appendChild(cell8);
+
+            document.getElementById("empBody").appendChild(row);
+
+        }
+
     }
 
 };
@@ -115,27 +165,73 @@ async function newTicket() {
     //this will be where the JS reads the ticket parameters from the form inputs
     //document.getElement....value for each ticket.parameter
     //need to have all the parameters set for the server to accept the ticket
+
+    let type_id = 0;
     
-    let ticket;
+    let amount = document.getElementById("EmpFormControlInputAmt").value;
+    let timeSubmitted = "10/10/2021"; //edit current date function
+    let type = document.getElementById("exampleFormControlSelect1").value;
+    let desc = document.getElementById("EmpFormControlTextarea1").value;
+
+        if(type == "Business"){
+            type_id = 1;
+        }else if(type = "Travel"){
+            type_id = 2;
+        }else if(type = "Medical"){
+            type_id= 3;
+        }else{
+            type_id = 4;
+        }
+    
+        let type_id_ob = {
+            re_type: type,
+            re_type_id: type_id
+            
+        };
+
+        let status_id_ob = {
+            re_status: "Pending",
+            re_status_id: 3
+            
+        };
+
+
+    let ticket = {
+        re_amount: amount,
+        re_submitted: timeSubmitted,
+        re_resolved: null,
+        re_desc: desc,
+        re_receipt: null,
+        re_author: userOb,
+        re_resolver: null,
+        re_status_id: status_id_ob,
+        re_type_id: type_id_ob
+    };
 
     console.log(ticket);
+    console.log("sending request");
 
     let response = await fetch(url + "newticket", {
 
+
         method: "POST",
+        mode: 'cors',
         body: JSON.stringify(ticket),
         credentials: "include"
 
     });
 
-    if(response.status === 200){
+    console.log("request got back");
+    console.log(response.status);
+
+    if(response.status === 201){
         
-        let data = await response.json();
-        console.log(JSON.stringify(data));
         console.log("New ticket submitted.");
+        document.getElementById("EmpFormControlInputAmt").value = null;
+        document.getElementById("EmpFormControlTextarea1").value = null;
 
         //call function to disappear ticket form and show success message
-
+        changeHideEmpForm()
     }
 };
 
@@ -153,15 +249,63 @@ async function viewTicketsMang(){
     if(response.status === 200){
 
         let data = await response.json();
+
         console.log(JSON.stringify(data));
-        console.log("All tickets viewed");
 
-        for(let ticket of data){
+    for(ticket of data){
 
-            //populate each element with tickets received
+        let row = document.createElement("tr"); //create table row
+        let cell = document.createElement("td"); //create cell for the field
+        cell.innerHTML = ticket.re_id;
+        row.appendChild(cell);
 
+        let cell2 = document.createElement("td"); //create cell for the field
+        cell2.innerHTML = ticket.re_author.id;
+        row.appendChild(cell2);
+
+        let cell3 = document.createElement("td"); //create cell for the field
+        cell3.innerHTML = ticket.re_amount;
+        row.appendChild(cell3);
+
+        let cell4 = document.createElement("td"); //create cell for the field
+        cell4.innerHTML = ticket.re_submitted;
+        row.appendChild(cell4);
+
+        let cell5 = document.createElement("td"); //create cell for the field
+        cell5.innerHTML = ticket.re_type_id.re_type;
+        row.appendChild(cell5);
+
+        let cell6 = document.createElement("td"); //create cell for the field
+        cell6.innerHTML = ticket.re_status_id.re_status;
+        row.appendChild(cell6);
+
+        let cell7 = document.createElement("td"); //create cell for the field
+        if(typeof ticket.re_resolver !== 'undefined'){
+            cell7.innerHTML = ticket.re_resolver.id;
+        }else{
+            cell7.innerHTML = "N/A";
+            
         }
+        
+        row.appendChild(cell7);
+
+        let cell8 = document.createElement("td"); //create cell for the field
+        if(typeof ticket.re_resolver !== 'undefined'){
+            cell8.innerHTML = ticket.re_resolved;
+        }else{
+            cell8.innerHTML = "TBD";
+        }
+        row.appendChild(cell8);
+
+        document.getElementById("manEmpBody").appendChild(row);
+        changeVisListManEmp()
+
+            
     }
+
+
+    }
+
 
 };
 
@@ -172,8 +316,6 @@ async function ticketById(){
     console.log(JSON.stringify(userOb));
 
     let response = await fetch(url + "ticketbyid")
-
-
 
 }
 
@@ -208,13 +350,13 @@ async function approveDeny(){
 
 }
 
-//Manger functions
+//Manager functions
 
 //normal show add,view, or update buttons for just the manger adding tickets
-document.getElementById("addMan").addEventListener("click", changeVisFormManTick);
-document.getElementById("updateMan").addEventListener("click", changeVisUpdateManSelf);
-//look at manger sumbited tickets
-document.getElementById("viewMan").addEventListener("click", changeVisListManSelf);
+//document.getElementById("addMan").addEventListener("click", changeVisFormManTick);
+//document.getElementById("updateMan").addEventListener("click", changeVisUpdateManSelf);
+//look at manager sumbited tickets
+//document.getElementById("viewMan").addEventListener("click", changeVisListManSelf);
 
 //normal hide buttons for manger, link to the buttons above^^
 document.getElementById("mansubForm").addEventListener("click", changeHideFormManTick);
@@ -265,7 +407,7 @@ function changeHideListManEmp() {
 
 
     document.getElementById("ManticketList").style.visibility = "hidden";
-
+    $("#manEmpTable tbody tr").remove();
 
 }
 
@@ -317,15 +459,15 @@ var UpForm = new Boolean(false);
 
 //show/hide add ticket forms
 document.getElementById("addEmp").addEventListener("click", changeVisEmpForm);
-document.getElementById("empsubForm").addEventListener("click", changeHideEmpForm);
+//document.getElementById("empsubForm").addEventListener("click", changeHideEmpForm);
 
 //show/hide list forms
 document.getElementById("viewEmp").addEventListener("click", changeVisEmpList);
 document.getElementById("manListButD").addEventListener("click", changeHideEmpList);
 
 //show/hide update forms
-document.getElementById("updateEmp").addEventListener("click", changeVisUpdateEmp);
-document.getElementById("empsubUp").addEventListener("click", changeHideUpdateEmp);
+//document.getElementById("updateEmp").addEventListener("click", changeVisUpdateEmp);
+//document.getElementById("empsubUp").addEventListener("click", changeHideUpdateEmp);
 
 
 
@@ -366,7 +508,7 @@ function changeHideEmpList(){
 
    
     document.getElementById("ticketListEmp").style.visibility= "hidden";
-    
+    $("#empTable tbody tr").remove();
 
 }
 
@@ -381,5 +523,11 @@ function changeHideUpdateEmp(){
     
    
     document.getElementById("updateticketForm").style.visibility= "hidden";
+
+}
+
+function currentDate(){
+    
+    new Date();
 
 }

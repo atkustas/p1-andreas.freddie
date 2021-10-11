@@ -1,33 +1,83 @@
-#logincontainer{
-    display: center;
+#fullcontainer{
     justify-content: center;
-    
+    margin: 0;
+    text-align: center;
+    background-color: cornflowerblue;
     }
 
-    
 #homeheader-row{
-
     margin: 0;
     position: relative;
-    top: 10%;
-
+    text-align: center;
 }
-
-    /* #login-row{
-
-        float: left;
-        margin: 0;
-        position: absolute;
-        top: 50%;
-        left: 60%;
-        transform: translate(-50%, -50%);
-    
-    } */
 
 #employeeMainCon{
 
     visibility: hidden;
+    margin: 0;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    text-align: left;
+}
 
+#ManMainCon{
+    visibility: hidden;
+    margin: 0;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    text-align: left;
+}
+
+#empHeader{
+    position: absolute;
+    margin: 0, 0;
+    left: 0px;
+    justify-content: left;
+    background-color: khaki;
+}
+
+#myHeader{
+    position: absolute;
+    margin: 0, 0;
+    left: 0px;
+    justify-content: left;
+    background-color: khaki;
+}
+
+#outputHeader{
+    background-color: peachpuff;
+}
+
+#empbuttonList{
+    position: absolute;
+    margin: 0;
+    top: 100px;
+}
+
+#manbuttonList{
+    position: absolute;
+    margin: 0;
+    top: 100px;
+}
+
+#Emplogout{
+    position: absolute;
+    margin: 0;
+    top: 250px;
+}
+
+#ticketOutput{
+    position: absolute;
+    top: 300px;
+    width: 100%;
+}
+
+#Manlogout{
+    position: absolute;
+    margin: 0;
+    top: 250px;
 }
 
 #EmpMasterForm{
@@ -43,6 +93,7 @@
 #ticketListEmp{
 
     visibility: hidden;
+    top: 500px;
  
 }
 
@@ -56,6 +107,12 @@
 
     visibility: hidden;
 
+}
+
+#ManOutputs{
+    position: absolute;
+    top: 300px;
+    width: 100%;
 }
 
 #ManMasterForm{
