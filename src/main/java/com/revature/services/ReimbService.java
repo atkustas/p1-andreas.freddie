@@ -71,7 +71,7 @@ public class ReimbService {
 		rDao.updateTicketStatAPP(ticket);
 	}
 	
-	public Reimbursement findTicketById(int id) {
+	public Reimbursement findTicketById(String id) {
 		
 		return rDao.findTicketById(id);
 	}

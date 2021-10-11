@@ -21,7 +21,7 @@ public interface ReimburstInterface {
 
 	public List<Reimbursement> findTicketsByType(ReType type); //done
 
-	public Reimbursement findTicketById(int id);
+	public Reimbursement findTicketById(String id);
 
 	public void updateTicket(Reimbursement ticket); //done
 

@@ -95,7 +95,7 @@ public class ReimburstDao implements ReimburstInterface {
 	}
 
 	@Override
-	public Reimbursement findTicketById(int id) {
+	public Reimbursement findTicketById(String id) {
 		Session ses = HibernateUtil.getSession();
 
 		Reimbursement ticket = ses.get(Reimbursement.class, id);

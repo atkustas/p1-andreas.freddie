@@ -14,7 +14,7 @@ public class ReimbursementTests {
 	public static ReimbService rs;
 	
 	//variables
-	int i = 1;
+	String i = "1";
 	int j = 2;
 	public Reimbursement result;
 	
@@ -32,7 +32,7 @@ public class ReimbursementTests {
 	
 	//unit tests
 	@Test
-	public void testFindTicketById(int id) {
+	public void testFindTicketById(String id) {
 		System.out.println("Testing finding ticket method");
 		result = rs.findTicketById(i);
 		assertTrue(result.getRe_id() == i);

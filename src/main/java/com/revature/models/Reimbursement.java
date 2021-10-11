@@ -22,7 +22,7 @@ public class Reimbursement {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "re_id")
-	private int re_id;
+	private String re_id;
 
 	private String re_amount;
 	private String re_submitted;
@@ -53,7 +53,7 @@ public class Reimbursement {
 	}
 
 	// all-args
-	public Reimbursement(int re_id, String re_amount, String re_submitted, String re_resolved, String re_desc,
+	public Reimbursement(String re_id, String re_amount, String re_submitted, String re_resolved, String re_desc,
 			byte[] re_receipt, User re_author, User re_resolver, ReStatus re_status_id, ReType re_type_id) {
 		super();
 		this.re_id = re_id;
@@ -92,11 +92,11 @@ public class Reimbursement {
 	}
 
 	// getters & setters
-	public int getRe_id() {
+	public String getRe_id() {
 		return re_id;
 	}
 
-	public void setRe_id(int re_id) {
+	public void setRe_id(String re_id) {
 		this.re_id = re_id;
 	}
 
@@ -172,77 +172,6 @@ public class Reimbursement {
 		this.re_type_id = re_type_id;
 	}
 
-//	@Override
-//	public int hashCode() {
-//		final int prime = 31;
-//		int result = 1;
-//		long temp;
-//		temp = Double.doubleToLongBits(re_amount);
-//		result = prime * result + (int) (temp ^ (temp >>> 32));
-//		result = prime * result + ((re_author == null) ? 0 : re_author.hashCode());
-//		result = prime * result + ((re_desc == null) ? 0 : re_desc.hashCode());
-//		result = prime * result + re_id;
-//		result = prime * result + Arrays.hashCode(re_receipt);
-//		result = prime * result + ((re_resolved == null) ? 0 : re_resolved.hashCode());
-//		result = prime * result + ((re_resolver == null) ? 0 : re_resolver.hashCode());
-//		result = prime * result + ((re_status_id == null) ? 0 : re_status_id.hashCode());
-//		result = prime * result + ((re_submitted == null) ? 0 : re_submitted.hashCode());
-//		result = prime * result + ((re_type_id == null) ? 0 : re_type_id.hashCode());
-//		return result;
-//	}
-//
-//	@Override
-//	public boolean equals(Object obj) {
-//		if (this == obj)
-//			return true;
-//		if (obj == null)
-//			return false;
-//		if (getClass() != obj.getClass())
-//			return false;
-//		Reimbursement other = (Reimbursement) obj;
-//		if (Double.doubleToLongBits(re_amount) != Double.doubleToLongBits(other.re_amount))
-//			return false;
-//		if (re_author == null) {
-//			if (other.re_author != null)
-//				return false;
-//		} else if (!re_author.equals(other.re_author))
-//			return false;
-//		if (re_desc == null) {
-//			if (other.re_desc != null)
-//				return false;
-//		} else if (!re_desc.equals(other.re_desc))
-//			return false;
-//		if (re_id != other.re_id)
-//			return false;
-//		if (!Arrays.equals(re_receipt, other.re_receipt))
-//			return false;
-//		if (re_resolved == null) {
-//			if (other.re_resolved != null)
-//				return false;
-//		} else if (!re_resolved.equals(other.re_resolved))
-//			return false;
-//		if (re_resolver == null) {
-//			if (other.re_resolver != null)
-//				return false;
-//		} else if (!re_resolver.equals(other.re_resolver))
-//			return false;
-//		if (re_status_id == null) {
-//			if (other.re_status_id != null)
-//				return false;
-//		} else if (!re_status_id.equals(other.re_status_id))
-//			return false;
-//		if (re_submitted == null) {
-//			if (other.re_submitted != null)
-//				return false;
-//		} else if (!re_submitted.equals(other.re_submitted))
-//			return false;
-//		if (re_type_id == null) {
-//			if (other.re_type_id != null)
-//				return false;
-//		} else if (!re_type_id.equals(other.re_type_id))
-//			return false;
-//		return true;
-//	}
 
 	public void setFields(int good, int pending, String resloveDate, User re_resolver, ReStatus re_status_id,
 			ReType re_type_id) {
@@ -274,7 +203,7 @@ public class Reimbursement {
 		result = prime * result + ((re_amount == null) ? 0 : re_amount.hashCode());
 		result = prime * result + ((re_author == null) ? 0 : re_author.hashCode());
 		result = prime * result + ((re_desc == null) ? 0 : re_desc.hashCode());
-		result = prime * result + re_id;
+		result = prime * result + ((re_id == null) ? 0 : re_id.hashCode());
 		result = prime * result + Arrays.hashCode(re_receipt);
 		result = prime * result + ((re_resolved == null) ? 0 : re_resolved.hashCode());
 		result = prime * result + ((re_resolver == null) ? 0 : re_resolver.hashCode());
@@ -308,7 +237,10 @@ public class Reimbursement {
 				return false;
 		} else if (!re_desc.equals(other.re_desc))
 			return false;
-		if (re_id != other.re_id)
+		if (re_id == null) {
+			if (other.re_id != null)
+				return false;
+		} else if (!re_id.equals(other.re_id))
 			return false;
 		if (!Arrays.equals(re_receipt, other.re_receipt))
 			return false;
@@ -339,6 +271,7 @@ public class Reimbursement {
 			return false;
 		return true;
 	}
+
 	
 	
 

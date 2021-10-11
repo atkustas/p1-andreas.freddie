@@ -1,7 +1,12 @@
 const url = "http://localhost:8090/"
 
+let i = null;
 var userOb;
-var allTickets = [];
+var allTickets= [i];
+let buttonId;
+let buttonName;
+var btn;
+var btn2;
 
 document.getElementById("loginButton").addEventListener("click", loginFunc);
 //document.getElementById("view").addEventListener("click", changeVisList1);
@@ -145,6 +150,10 @@ async function loginFunc() {
             }
             row.appendChild(cell8);
 
+            let cell9 = document.createElement("td");
+            cell9.innerHTML = ticket.re_desc;
+            row.appendChild(cell9);
+
             document.getElementById("empBody").appendChild(row);
 
         }
@@ -169,7 +178,7 @@ async function newTicket() {
     let type_id = 0;
     
     let amount = document.getElementById("EmpFormControlInputAmt").value;
-    let timeSubmitted = "10/10/2021"; //edit current date function
+    let timeSubmitted = "10/11/2021"; //edit current date function
     let type = document.getElementById("exampleFormControlSelect1").value;
     let desc = document.getElementById("EmpFormControlTextarea1").value;
 
@@ -251,11 +260,14 @@ async function viewTicketsMang(){
         let data = await response.json();
 
         console.log(JSON.stringify(data));
+        console.log(data);
+        console.log(data[0].re_id);
+        allTickets = data;
 
     for(ticket of data){
-
         let row = document.createElement("tr"); //create table row
         let cell = document.createElement("td"); //create cell for the field
+        
         cell.innerHTML = ticket.re_id;
         row.appendChild(cell);
 
@@ -297,7 +309,52 @@ async function viewTicketsMang(){
         }
         row.appendChild(cell8);
 
+        let cell9 = document.createElement("td");
+        var btn = document.createElement("button");
+        btn.innerHTML = "Approve";
+        btn.name = "approve";
+        btn.id = ticket.re_id;
+        btn.className = "approveDeny";
+        btn.addEventListener("click", function(){
+            buttonId = this.id;
+            buttonName = "approve"
+            approveDeny();
+            console.log("ticket.re_id is: " + ticket.re_id);
+            console.log(btn.id);
+            console.log(btn.name);
+            console.log("buttonId is: " +buttonId);
+        });
+        
+
+        cell9.appendChild(btn);
+        row.appendChild(cell9);
+
+        var btn2 = document.createElement("button");
+        btn2.innerHTML = "Deny";
+        btn2.name = "deny";
+        btn2.id = ticket.re_id;
+        btn2.className = "approveDeny";
+        btn2.addEventListener("click", function(){
+            buttonId = this.id;
+            buttonName = "deny"
+            approveDeny();
+            console.log("ticket.re_id is: " + ticket.re_id);
+            console.log(btn2.id);
+            console.log(btn2.name);
+            console.log("buttonId is: " +buttonId);
+        });
+        
+
+        cell9.appendChild(btn2);
+        row.appendChild(cell9);
+
+        let cell10 = document.createElement("td");
+        cell10.innerHTML = ticket.re_desc;
+        row.appendChild(cell10);
+
+
         document.getElementById("manEmpBody").appendChild(row);
+
         changeVisListManEmp()
 
             
@@ -324,7 +381,35 @@ async function approveDeny(){
     console.log("inside the approve/deny async");
     console.log(JSON.stringify(userOb));
 
-    let ticket;
+    console.log(allTickets);
+    console.log("allTickets length is: " + allTickets.length);
+
+    console.log("buttonId is: " + buttonId);
+    console.log("buttonName is: " +buttonName);
+
+
+    for(i = 0; i < allTickets.length; i++){
+        if(buttonId === allTickets[i].re_id){
+           ticket = allTickets[i];
+        }else{
+            i++;
+        };
+    };
+
+    if(buttonName === "approve"){
+        ticket.re_status_id.re_status_id = 1,
+        ticket.re_status_id.re_status = "Approved";
+    }
+
+    if(buttonName === "deny"){
+        ticket.re_status_id.re_status_id = 2,
+        ticket.re_status_id.re_status = "Denied";
+    }
+
+    ticket.re_resolver = userOb;
+
+    ticket.re_resolved = "10/11/2021";
+
     //construct ticket from form data same as newticket()
     //don't forget timestamp
     //set resolver to userOb (manager is signed in at this point)
@@ -338,10 +423,12 @@ async function approveDeny(){
     });
 
     if(response.status === 200){
+
+        console.log(ticket);
         
-        let data = await response.json();
-        console.log(JSON.stringify(data));
-        console.log("Ticket status updated.");
+        // let data = await response.json();
+        // console.log(JSON.stringify(data));
+        // console.log("Ticket status updated.");
 
         //disappear ticket & show success message in window
 
@@ -370,7 +457,7 @@ document.getElementById("viewEmpMan").addEventListener("click", changeVisListMan
 
 ////hide buttons for emp forms and list
 document.getElementById("subUpMan2").addEventListener("click", changeHideUpdateManEmp);
-document.getElementById("manEmpListButD").addEventListener("click", changeHideListManSelf);
+//document.getElementById("manEmpListButD").addEventListener("click", changeHideListManSelf);
 
 //document.getElementById("subForm2").addEventListener("click", changeVisForm3);
 

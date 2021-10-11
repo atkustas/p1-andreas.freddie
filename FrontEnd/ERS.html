@@ -114,7 +114,7 @@
                 <h2 id=outputHeader>Your Reimbursement Requests</h2>
             </div>
 
-            <button type="button" class="btn-primary" id="manListButD">Done</button>
+            <button type="button" class="btn-primary" id="manListButD" onclick=changeHideEmpList()>Done</button>
 
         <!--Table of user ticket info-->
         <div id="table-row" class="row">
@@ -130,6 +130,7 @@
                         <th>Status</th>
                         <th>Resolver ID</th>
                         <th>Resolved Date</th>
+                        <th>Description</th>
                     </tr>
                 </thead>
                 <tbody id="empBody">
@@ -147,10 +148,10 @@
   
         <div>
 
-    <h3>Reimbursement Form</h3>
-  <br>
-  <p>Enter the details of your Reimbursement Request using the form below. </p>
-  </div>
+        <h3>Reimbursement Form</h3>
+        <br>
+        <p>Enter the details of your Reimbursement Request using the form below. </p>
+        </div>
   
               <div id="empform1" class="form-group">
                   <label for="FormControlInputAmt">Amount ($)</label><br>
@@ -214,9 +215,9 @@
                         <button id="viewEmpMan" type="button" class="btn btn-light">View Employee Reimbursement Requests</button>
                     </li>
                     <br>
-                    <li>
+                    <!-- <li>
                         <button id="updateStatMan" type="button" class="btn btn-light">Change Employee Request Status</button>
-                    </li>
+                    </li> -->
                 </ul>
             </div>
 
@@ -247,14 +248,15 @@
                 <thead id="manEmpHead">
                     <tr>
                         <th>ID</th>
-                        <th>User-ID</th>
+                        <th>User ID</th>
                         <th>Amount</th>
-                        <th>Type</th>
                         <th>Submitted</th>
+                        <th>Type</th>
                         <th>Status</th>
-                        <th>Resolver-ID</th>
+                        <th>Resolver ID</th>
                         <th>Resolved</th>
-                        <th>View Ticket</th>
+                        <th>Approve/Deny</th>
+                        <th>Description</th>
                     </tr>
                 </thead>
                 <tbody id="manEmpBody">
